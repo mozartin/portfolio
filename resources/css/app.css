@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply bg-button-primary text-white px-4 py-2 rounded-[8px] font-medium transition-opacity hover:opacity-90;
+    }
+    
+    .btn-secondary {
+        @apply bg-transparent border border-text-primary/15 text-text-primary px-4 py-2 rounded-[8px] font-medium transition-opacity hover:opacity-80;
+    }
+}
