@@ -24,17 +24,24 @@ if [ -z "$APP_KEY" ] && [ ! -f /var/www/html/.env ]; then
     echo "⚠️  Laravel may not work properly without APP_KEY"
 fi
 
-# Clear Laravel cache to ensure fresh start (skip cache:clear if using database cache)
-# Only clear config, route, and view cache - these don't require DB connection
+# Clear Laravel cache to ensure fresh start
+# Force clear config cache to reload SESSION_DRIVER and other settings
 if [ -f /var/www/html/.env ] || [ ! -z "$APP_KEY" ]; then
     echo "🧹 Clearing Laravel cache..."
     cd /var/www/html
-    # Clear config cache (doesn't require DB)
-    php artisan config:clear 2>&1 || echo "Config clear failed (may be expected)"
+    
+    # Remove cached config file if it exists (force reload)
+    rm -f bootstrap/cache/config.php 2>/dev/null || true
+    
+    # Clear config cache (doesn't require DB) - use APP_ENV to avoid DB connection
+    APP_ENV=local php artisan config:clear 2>&1 || echo "Config clear failed (may be expected)"
+    
     # Clear route cache (doesn't require DB)
     php artisan route:clear 2>&1 || echo "Route clear failed (may be expected)"
+    
     # Clear view cache (doesn't require DB)
     php artisan view:clear 2>&1 || echo "View clear failed (may be expected)"
+    
     # Skip cache:clear if CACHE_STORE is database (requires DB connection)
     if [ "$CACHE_STORE" != "database" ]; then
         php artisan cache:clear 2>&1 || echo "Cache clear failed (may be expected)"
@@ -43,6 +50,13 @@ if [ -f /var/www/html/.env ] || [ ! -z "$APP_KEY" ]; then
     fi
 else
     echo "⚠️  .env file not found and APP_KEY not set - skipping cache clear"
+fi
+
+# IMPORTANT: Check if SESSION_DRIVER is set to database and warn
+if [ "$SESSION_DRIVER" = "database" ]; then
+    echo "⚠️  WARNING: SESSION_DRIVER=database requires database connection!"
+    echo "⚠️  Please set SESSION_DRIVER=file in Railway environment variables"
+    echo "⚠️  Or ensure your database is accessible at DB_HOST"
 fi
 
 # Verify critical files exist
