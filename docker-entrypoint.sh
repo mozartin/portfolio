@@ -52,11 +52,16 @@ else
     echo "⚠️  .env file not found and APP_KEY not set - skipping cache clear"
 fi
 
-# IMPORTANT: Check if SESSION_DRIVER is set to database and warn
+# IMPORTANT: Override SESSION_DRIVER=database to file if DB might be unreachable
+# This prevents errors when SESSION_DRIVER=database but DB is not accessible
 if [ "$SESSION_DRIVER" = "database" ]; then
-    echo "⚠️  WARNING: SESSION_DRIVER=database requires database connection!"
-    echo "⚠️  Please set SESSION_DRIVER=file in Railway environment variables"
-    echo "⚠️  Or ensure your database is accessible at DB_HOST"
+    DB_HOST_CHECK="$DB_HOST"
+    # If DB_HOST contains railway.internal, it might not be accessible immediately
+    if [[ "$DB_HOST_CHECK" == *"railway.internal"* ]]; then
+        echo "⚠️  SESSION_DRIVER=database detected, but DB_HOST is railway.internal"
+        echo "⚠️  Temporarily overriding to file driver to prevent connection errors"
+        export SESSION_DRIVER=file
+    fi
 fi
 
 # Verify critical files exist
