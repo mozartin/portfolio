@@ -70,12 +70,18 @@ RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache} && \
 RUN composer install --no-dev --optimize-autoloader --no-interaction && \
     chown -R www:www /var/www/html/vendor
 
-# Configure PHP-FPM to run as www user (in php-fpm config, not via USER directive)
+# Configure PHP-FPM to run as www user and listen on localhost TCP socket
 RUN sed -i 's/user = www-data/user = www/g' /usr/local/etc/php-fpm.d/www.conf && \
-    sed -i 's/group = www-data/group = www/g' /usr/local/etc/php-fpm.d/www.conf
+    sed -i 's/group = www-data/group = www/g' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/listen = .*/listen = 127.0.0.1:9000/g' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.owner = .*/listen.owner = www/g' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.group = .*/listen.group = www/g' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.mode = .*/listen.mode = 0660/g' /usr/local/etc/php-fpm.d/www.conf
 
-# Copy nginx config (already configured for single container with 127.0.0.1:9000)
+# Remove default nginx site and copy our config
+RUN rm -f /etc/nginx/sites-enabled/default
 COPY docker/nginx/default.conf /etc/nginx/sites-available/default
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Create supervisor config to run both nginx and php-fpm
 RUN echo '[supervisord]' > /etc/supervisor/conf.d/supervisord.conf && \
