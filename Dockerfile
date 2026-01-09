@@ -60,17 +60,22 @@ COPY --chown=www:www . /var/www/html
 # Copy built frontend assets from builder stage
 COPY --from=frontend-builder --chown=www:www /app/public/build /var/www/html/public/build
 
+# Create necessary storage and cache directories with proper permissions
+RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache} && \
+    mkdir -p /var/www/html/storage/logs && \
+    mkdir -p /var/www/html/bootstrap/cache
+
 # Install PHP dependencies (production only, no dev dependencies)
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Run as root, then fix permissions
+RUN composer install --no-dev --optimize-autoloader --no-interaction && \
+    chown -R www:www /var/www/html/vendor
 
 # Configure PHP-FPM to run as www user (in php-fpm config, not via USER directive)
 RUN sed -i 's/user = www-data/user = www/g' /usr/local/etc/php-fpm.d/www.conf && \
     sed -i 's/group = www-data/group = www/g' /usr/local/etc/php-fpm.d/www.conf
 
-# Copy nginx config and update it for single container (localhost instead of app:9000)
-COPY docker/nginx/default.conf /tmp/nginx-default.conf
-RUN sed 's/fastcgi_pass app:9000/fastcgi_pass 127.0.0.1:9000/g' /tmp/nginx-default.conf > /etc/nginx/sites-available/default && \
-    rm /tmp/nginx-default.conf
+# Copy nginx config (already configured for single container with 127.0.0.1:9000)
+COPY docker/nginx/default.conf /etc/nginx/sites-available/default
 
 # Create supervisor config to run both nginx and php-fpm
 RUN echo '[supervisord]' > /etc/supervisor/conf.d/supervisord.conf && \
@@ -95,12 +100,21 @@ RUN echo '[supervisord]' > /etc/supervisor/conf.d/supervisord.conf && \
     echo 'stderr_logfile=/dev/stderr' >> /etc/supervisor/conf.d/supervisord.conf && \
     echo 'stderr_logfile_maxbytes=0' >> /etc/supervisor/conf.d/supervisord.conf
 
-# Set permissions for storage and cache, and make public readable
-RUN chown -R www:www /var/www/html/storage /var/www/html/bootstrap/cache || true && \
+# Copy entrypoint script
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+# Set proper permissions for storage, cache, and public directories
+RUN chown -R www:www /var/www/html/storage /var/www/html/bootstrap/cache && \
+    chmod -R 775 /var/www/html/storage && \
+    chmod -R 775 /var/www/html/bootstrap/cache && \
     chmod -R 755 /var/www/html/public
 
 # Expose port 80 for web server
 EXPOSE 80
+
+# Use entrypoint to ensure directories exist and permissions are correct
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 # Start supervisor to run both nginx and php-fpm
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
