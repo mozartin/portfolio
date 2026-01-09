@@ -5,6 +5,17 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Force SESSION_DRIVER to file if DB might be unreachable
+// This prevents errors when SESSION_DRIVER=database but DB is not accessible
+if (isset($_ENV['SESSION_DRIVER']) && $_ENV['SESSION_DRIVER'] === 'database') {
+    $dbHost = $_ENV['DB_HOST'] ?? '';
+    // If DB_HOST contains railway.internal, it might not be accessible immediately
+    if (!empty($dbHost) && strpos($dbHost, 'railway.internal') !== false) {
+        $_ENV['SESSION_DRIVER'] = 'file';
+        putenv('SESSION_DRIVER=file');
+    }
+}
+
 // Enable error reporting for debugging (remove in production if needed)
 ini_set('display_errors', '0');
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
