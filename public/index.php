@@ -60,16 +60,35 @@ try {
     $kernel->terminate($request, $response);
 } catch (\Throwable $e) {
     // Log error to file
-    error_log('Laravel Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
-    error_log('Stack trace: ' . $e->getTraceAsString());
+    $logFile = __DIR__.'/../storage/logs/laravel.log';
+    $errorMsg = date('Y-m-d H:i:s') . ' - Laravel Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine() . PHP_EOL;
+    $errorMsg .= 'Stack trace: ' . $e->getTraceAsString() . PHP_EOL . PHP_EOL;
+    @file_put_contents($logFile, $errorMsg, FILE_APPEND);
     
-    // Return 500 error
+    // Also log to PHP error log
+    error_log('Laravel Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+    
+    // Return 500 error with more details
     http_response_code(500);
-    echo '500 Internal Server Error. Check logs for details.';
-    if (isset($_ENV['APP_DEBUG']) && $_ENV['APP_DEBUG'] === 'true') {
-        echo '<br><br>Error: ' . htmlspecialchars($e->getMessage());
-        echo '<br>File: ' . htmlspecialchars($e->getFile());
-        echo '<br>Line: ' . htmlspecialchars($e->getLine());
+    header('Content-Type: text/html; charset=utf-8');
+    
+    // Show error details if APP_DEBUG is true or if we're in development
+    $showDetails = (isset($_ENV['APP_DEBUG']) && $_ENV['APP_DEBUG'] === 'true') || 
+                   (isset($_ENV['APP_ENV']) && $_ENV['APP_ENV'] !== 'production');
+    
+    if ($showDetails) {
+        echo '<!DOCTYPE html><html><head><title>500 Error</title></head><body style="font-family: monospace; padding: 20px;">';
+        echo '<h1>500 Internal Server Error</h1>';
+        echo '<h2>Error Details:</h2>';
+        echo '<p><strong>Message:</strong> ' . htmlspecialchars($e->getMessage()) . '</p>';
+        echo '<p><strong>File:</strong> ' . htmlspecialchars($e->getFile()) . '</p>';
+        echo '<p><strong>Line:</strong> ' . htmlspecialchars($e->getLine()) . '</p>';
+        echo '<h3>Stack Trace:</h3>';
+        echo '<pre style="background: #f5f5f5; padding: 10px; overflow-x: auto;">' . htmlspecialchars($e->getTraceAsString()) . '</pre>';
+        echo '<p><small>Error logged to: ' . htmlspecialchars($logFile) . '</small></p>';
+        echo '</body></html>';
+    } else {
+        echo '500 Internal Server Error. Check logs for details.';
     }
     exit(1);
 }
