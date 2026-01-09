@@ -1,5 +1,6 @@
 #!/bin/bash
-set -e
+# Don't exit on error for artisan commands
+set +e
 
 echo "🔧 Starting entrypoint script..."
 
@@ -17,15 +18,21 @@ chmod -R 775 /var/www/html/storage
 chmod -R 775 /var/www/html/bootstrap/cache
 chmod -R 755 /var/www/html/public
 
-# Clear Laravel cache to ensure fresh start (if .env exists)
-if [ -f /var/www/html/.env ]; then
+# Check if APP_KEY is set (required for Laravel)
+if [ -z "$APP_KEY" ] && [ ! -f /var/www/html/.env ]; then
+    echo "⚠️  WARNING: APP_KEY environment variable is not set!"
+    echo "⚠️  Laravel may not work properly without APP_KEY"
+fi
+
+# Clear Laravel cache to ensure fresh start (if .env exists or env vars are available)
+if [ -f /var/www/html/.env ] || [ ! -z "$APP_KEY" ]; then
     echo "🧹 Clearing Laravel cache..."
-    cd /var/www/html && php artisan config:clear || true
-    php artisan cache:clear || true
-    php artisan route:clear || true
-    php artisan view:clear || true
+    cd /var/www/html && php artisan config:clear 2>&1 || echo "Config clear failed (may be expected)"
+    php artisan cache:clear 2>&1 || echo "Cache clear failed (may be expected)"
+    php artisan route:clear 2>&1 || echo "Route clear failed (may be expected)"
+    php artisan view:clear 2>&1 || echo "View clear failed (may be expected)"
 else
-    echo "⚠️  .env file not found - skipping cache clear"
+    echo "⚠️  .env file not found and APP_KEY not set - skipping cache clear"
 fi
 
 # Verify critical files exist

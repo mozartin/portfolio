@@ -5,6 +5,10 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Enable error reporting for debugging (remove in production if needed)
+ini_set('display_errors', '0');
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
@@ -44,12 +48,28 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+try {
+    $app = require_once __DIR__.'/../bootstrap/app.php';
 
-$kernel = $app->make(Kernel::class);
+    $kernel = $app->make(Kernel::class);
 
-$response = $kernel->handle(
-    $request = Request::capture()
-)->send();
+    $response = $kernel->handle(
+        $request = Request::capture()
+    )->send();
 
-$kernel->terminate($request, $response);
+    $kernel->terminate($request, $response);
+} catch (\Throwable $e) {
+    // Log error to file
+    error_log('Laravel Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+    error_log('Stack trace: ' . $e->getTraceAsString());
+    
+    // Return 500 error
+    http_response_code(500);
+    echo '500 Internal Server Error. Check logs for details.';
+    if (isset($_ENV['APP_DEBUG']) && $_ENV['APP_DEBUG'] === 'true') {
+        echo '<br><br>Error: ' . htmlspecialchars($e->getMessage());
+        echo '<br>File: ' . htmlspecialchars($e->getFile());
+        echo '<br>Line: ' . htmlspecialchars($e->getLine());
+    }
+    exit(1);
+}

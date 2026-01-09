@@ -71,12 +71,15 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction && \
     chown -R www:www /var/www/html/vendor
 
 # Configure PHP-FPM to run as www user and listen on localhost TCP socket
+# Also enable error logging
 RUN sed -i 's/user = www-data/user = www/g' /usr/local/etc/php-fpm.d/www.conf && \
     sed -i 's/group = www-data/group = www/g' /usr/local/etc/php-fpm.d/www.conf && \
     sed -i 's/listen = .*/listen = 127.0.0.1:9000/g' /usr/local/etc/php-fpm.d/www.conf && \
     sed -i 's/;listen.owner = .*/listen.owner = www/g' /usr/local/etc/php-fpm.d/www.conf && \
     sed -i 's/;listen.group = .*/listen.group = www/g' /usr/local/etc/php-fpm.d/www.conf && \
-    sed -i 's/;listen.mode = .*/listen.mode = 0660/g' /usr/local/etc/php-fpm.d/www.conf
+    sed -i 's/;listen.mode = .*/listen.mode = 0660/g' /usr/local/etc/php-fpm.d/www.conf && \
+    echo "php_admin_value[error_log] = /var/www/html/storage/logs/php_errors.log" >> /usr/local/etc/php-fpm.d/www.conf && \
+    echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 
 # Remove default nginx site and copy our config
 RUN rm -f /etc/nginx/sites-enabled/default
