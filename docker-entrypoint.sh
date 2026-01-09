@@ -30,8 +30,8 @@ if [ -f /var/www/html/.env ] || [ ! -z "$APP_KEY" ]; then
     echo "🧹 Clearing Laravel cache..."
     cd /var/www/html
     
-    # Remove cached config file if it exists (force reload)
-    rm -f bootstrap/cache/config.php 2>/dev/null || true
+# Remove cached config file if it exists (force reload of new settings)
+rm -f bootstrap/cache/config.php 2>/dev/null || true
     
     # Clear config cache (doesn't require DB) - use APP_ENV to avoid DB connection
     APP_ENV=local php artisan config:clear 2>&1 || echo "Config clear failed (may be expected)"
