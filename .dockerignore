@@ -11,4 +11,8 @@ Dockerfile
 README.md
 .vscode
 .idea
+supervisord.log
+supervisord.pid
+*.log
+storage/*.key
 

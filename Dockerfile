@@ -87,8 +87,11 @@ COPY docker/nginx/default.conf /etc/nginx/sites-available/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Create supervisor config to run both nginx and php-fpm
-RUN echo '[supervisord]' > /etc/supervisor/conf.d/supervisord.conf && \
+RUN mkdir -p /var/log/supervisor && \
+    echo '[supervisord]' > /etc/supervisor/conf.d/supervisord.conf && \
     echo 'nodaemon=true' >> /etc/supervisor/conf.d/supervisord.conf && \
+    echo 'logfile=/tmp/supervisord.log' >> /etc/supervisor/conf.d/supervisord.conf && \
+    echo 'pidfile=/tmp/supervisord.pid' >> /etc/supervisor/conf.d/supervisord.conf && \
     echo 'user=root' >> /etc/supervisor/conf.d/supervisord.conf && \
     echo '' >> /etc/supervisor/conf.d/supervisord.conf && \
     echo '[program:php-fpm]' >> /etc/supervisor/conf.d/supervisord.conf && \
