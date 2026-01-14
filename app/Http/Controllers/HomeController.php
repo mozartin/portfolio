@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Welcome');
+        // Теперь мы открываем Home.jsx из папки resources/js/Pages/
+        return Inertia::render('Home');
     }
 }
-

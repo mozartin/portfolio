@@ -1,4 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+import relumeTailwind from "@relume_io/relume-tailwind";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -7,7 +8,10 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
+        './resources/js/**/*.tsx',
+        './node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}',
     ],
+    presets: [relumeTailwind],
     theme: {
         extend: {
             fontFamily: {
@@ -24,4 +28,3 @@ export default {
     },
     plugins: [],
 };
-
