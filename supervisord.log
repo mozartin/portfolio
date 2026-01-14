@@ -1,0 +1,30 @@
+2026-01-09 22:57:55,280 INFO Set uid to user 0 succeeded
+2026-01-09 22:57:55,293 INFO supervisord started with pid 1
+2026-01-09 22:57:56,298 INFO spawned: 'nginx' with pid 36
+2026-01-09 22:57:56,303 INFO spawned: 'php-fpm' with pid 37
+2026-01-09 22:57:57,358 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-09 22:57:57,358 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-10 11:17:53,773 WARN received SIGQUIT indicating exit request
+2026-01-10 11:17:53,776 INFO waiting for nginx, php-fpm to die
+2026-01-10 11:17:53,790 INFO stopped: php-fpm (exit status 0)
+2026-01-10 11:17:53,797 INFO stopped: nginx (exit status 0)
+2026-01-10 11:18:38,703 INFO Set uid to user 0 succeeded
+2026-01-10 11:18:38,709 INFO supervisord started with pid 1
+2026-01-10 11:18:39,712 INFO spawned: 'nginx' with pid 31
+2026-01-10 11:18:39,715 INFO spawned: 'php-fpm' with pid 32
+2026-01-10 11:18:40,754 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-10 11:18:40,755 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-10 11:23:02,012 WARN received SIGQUIT indicating exit request
+2026-01-10 11:23:02,013 INFO waiting for nginx, php-fpm to die
+2026-01-10 11:23:02,021 INFO stopped: php-fpm (exit status 0)
+2026-01-10 11:23:02,030 INFO stopped: nginx (exit status 0)
+2026-01-10 11:23:43,111 INFO Set uid to user 0 succeeded
+2026-01-10 11:23:43,121 INFO supervisord started with pid 1
+2026-01-10 11:23:44,125 INFO spawned: 'nginx' with pid 49
+2026-01-10 11:23:44,127 INFO spawned: 'php-fpm' with pid 50
+2026-01-10 11:23:45,163 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-10 11:23:45,164 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-10 11:24:06,186 WARN received SIGQUIT indicating exit request
+2026-01-10 11:24:06,187 INFO waiting for nginx, php-fpm to die
+2026-01-10 11:24:06,203 INFO stopped: php-fpm (exit status 0)
+2026-01-10 11:24:06,216 INFO stopped: nginx (exit status 0)

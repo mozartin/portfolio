@@ -111,6 +111,7 @@ RUN echo '[supervisord]' > /etc/supervisor/conf.d/supervisord.conf && \
 
 # Copy entrypoint script
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN sed -i 's/\r$//' /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Set proper permissions for storage, cache, and public directories
