@@ -5,7 +5,7 @@ import HomePage from '../Components/Relume/home/index';
 export default function Home() {
     return (
         <>
-            <Head title="Page" />
+            <Head title="Home" />
             <HomePage />
         </>
     );

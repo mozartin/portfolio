@@ -1,4 +1,3 @@
-console.log('--- JS APP STARTING ---');
 import './bootstrap';
 import '../css/app.css';
 

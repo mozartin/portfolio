@@ -4,6 +4,7 @@ import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
+import { Link } from "@inertiajs/react";
 
 const useRelume = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -46,13 +47,13 @@ export function Navbar1() {
     >
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <a href="/">
+          <Link href="/">
             <img
               src="/images/logo.png"
               alt="Logo image"
               className="h-10 w-auto"
             />
-          </a>
+          </Link>
           <button
             className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
             onClick={useActive.toggleMobileMenu}
@@ -107,83 +108,28 @@ export function Navbar1() {
           transition={{ duration: 0.4 }}
           className="overflow-hidden px-[5%] lg:flex lg:items-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
         >
-          <a
-            href="#"
+          <Link
+            href="/about"
             className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
           >
-            Portfolio
-          </a>
-          <a
-            href="#"
+            About
+          </Link>
+          <Link
+            href="/services"
             className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
           >
             Services
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/contact"
             className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
           >
             Contact
-          </a>
+          </Link>
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
           >
-            <button
-              className="flex w-full items-center justify-between gap-2 py-3 text-left text-md lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
-              onClick={useActive.openOnMobileDropdownMenu}
-            >
-              <span>Pages</span>
-              <motion.span
-                variants={{ rotated: { rotate: 180 }, initial: { rotate: 0 } }}
-                animate={useActive.animateDropdownMenuIcon}
-                transition={{ duration: 0.3 }}
-              >
-                <RxChevronDown />
-              </motion.span>
-            </button>
-            <AnimatePresence>
-              <motion.nav
-                variants={{
-                  open: {
-                    visibility: "visible",
-                    opacity: "var(--opacity-open, 100%)",
-                    display: "block",
-                    y: 0,
-                  },
-                  close: {
-                    visibility: "hidden",
-                    opacity: "var(--opacity-close, 0)",
-                    display: "none",
-                    y: "var(--y-close, 0%)",
-                  },
-                }}
-                animate={useActive.animateDropdownMenu}
-                initial="close"
-                exit="close"
-                transition={{ duration: 0.2 }}
-                className="bg-[#F0F6F5] lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
-              >
-                <a
-                  href="#"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Home
-                </a>
-                <a
-                  href="#"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Project
-                </a>
-                <a
-                  href="#"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Blog
-                </a>
-              </motion.nav>
-            </AnimatePresence>
           </div>
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
             <Button title="Start" size="sm" className="w-full">
