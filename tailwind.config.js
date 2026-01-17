@@ -15,7 +15,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                regular: ['Castoro', 'serif'],      
+                heading: ['Castoro Titling', 'serif'],         
             },
             colors: {
                 'primary-bg': '#E1EDEC',

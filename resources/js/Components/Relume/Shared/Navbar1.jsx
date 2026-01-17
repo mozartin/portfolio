@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { useMediaQuery } from "@relume_io/relume-ui";
+import { Button } from "./Button";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
@@ -130,11 +131,10 @@ export function Navbar1() {
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
           >
+
           </div>
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-            <Button title="Start" size="sm" className="w-full">
-              Start
-            </Button>
+            <Button className="w-full lg:w-auto">Start</Button>
           </div>
         </motion.div>
       </div>

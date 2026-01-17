@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
+import { Button } from "../../Shared/Button";
 import React from "react";
 
 export function Header145() {
@@ -18,10 +18,8 @@ export function Header145() {
               Simple design. Real results.
             </p>
             <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-              <Button title="View portfolio">View portfolio</Button>
-              <Button title="Contact me" variant="secondary">
-                Contact me
-              </Button>
+              <Button>View portfolio</Button>
+              <Button variant="secondary">Contact me</Button>
             </div>
           </div>
         </div>

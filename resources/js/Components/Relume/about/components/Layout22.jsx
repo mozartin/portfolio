@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
+import { Button } from "../../Shared/Button";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 
@@ -27,17 +27,8 @@ export function Layout22() {
               presence, so I decided to change that.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button title="Services" variant="secondary">
-                Services
-              </Button>
-              <Button
-                title="Contact"
-                variant="link"
-                size="link"
-                iconRight={<RxChevronRight />}
-              >
-                Contact
-              </Button>
+              <Button variant="secondary">Services</Button>
+              <Button variant="link" iconRight={<RxChevronRight />}>Contact</Button>
             </div>
           </div>
           <div>

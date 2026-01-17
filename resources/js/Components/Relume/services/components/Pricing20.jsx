@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
+import { Button } from "../../Shared/Button";
 import React from "react";
 import { BiCheck } from "react-icons/bi";
 
@@ -29,9 +29,7 @@ export function Pricing20() {
               €600
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button title="Get started" className="w-full">
-                Get started
-              </Button>
+              <Button className="w-full">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
             <div className="grid grid-cols-1 gap-y-4 py-2">
@@ -83,9 +81,7 @@ export function Pricing20() {
               €1100
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button title="Get started" className="w-full">
-                Get started
-              </Button>
+              <Button className="w-full">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
             <div className="grid grid-cols-1 gap-y-4 py-2">
@@ -137,9 +133,7 @@ export function Pricing20() {
               €1,700
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button title="Get started" className="w-full">
-                Get started
-              </Button>
+              <Button className="w-full">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
             <div className="grid grid-cols-1 gap-y-4 py-2">

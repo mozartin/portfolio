@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
+import { Button } from "./Button";
 import React from "react";
 
 export function Cta25() {
@@ -15,10 +15,8 @@ export function Cta25() {
           clarity — in design, code, and communication.
         </p>
         <div className="mt-6 flex items-center justify-center gap-4 md:mt-8">
-          <Button title="Work with me">Work with me</Button>
-          <Button title="About me" variant="secondary">
-            About me
-          </Button>
+          <Button>Work with me</Button>
+          <Button variant="secondary">About me</Button>
         </div>
       </div>
     </section>

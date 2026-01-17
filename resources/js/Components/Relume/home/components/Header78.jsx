@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
+import { Button } from "../../Shared/Button";
 import React from "react";
 
 // Список ваших картинок (обновленный)
@@ -38,22 +38,20 @@ export function Header78() {
   );
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-22">
       <div className="container flex flex-col items-center">
         <div className="rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-          <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+          <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
             Calm, structured websites for wellness, beauty & sport businesses
           </h1>
-          <p className="md:text-md">
+          <p className="md:text-md font-regular italic">
             I design and build clear, fast, and maintainable websites that help
             small brands look professional and grow — without unnecessary
             complexity.
           </p>
           <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-            <Button title="Work with me">Work with me</Button>
-            <Button title="See my approach" variant="secondary">
-              See my approach
-            </Button>
+            <Button>Work with me</Button>
+            <Button variant="secondary">See my approach</Button>
           </div>
         </div>
         <div className="flex w-screen justify-start overflow-hidden">

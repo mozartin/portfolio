@@ -5,8 +5,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  Button,
 } from "@relume_io/relume-ui";
+import { Button } from "../../Shared/Button";
 import React from "react";
 import { RxPlus } from "react-icons/rx";
 
@@ -21,9 +21,7 @@ export function Faq6() {
           Answers to what you need to know about the process and approach
         </p>
         <div className="mt-6 md:mt-8">
-          <Button title="Contact" variant="secondary">
-            Contact
-          </Button>
+          <Button variant="secondary">Contact</Button>
         </div>
         <Accordion
           type="multiple"

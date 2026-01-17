@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
+import { Button } from "../../Shared/Button";
 import React from "react";
 
 export function Header44() {
@@ -19,10 +19,8 @@ export function Header44() {
             production.
           </p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-            <Button title="Work with me">Work with me</Button>
-            <Button title="Contact" variant="secondary">
-              Contact
-            </Button>
+            <Button>Work with me</Button>
+            <Button variant="secondary">Contact</Button>
           </div>
         </div>
       </div>
