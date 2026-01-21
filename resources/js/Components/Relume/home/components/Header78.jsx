@@ -38,7 +38,7 @@ export function Header78() {
   );
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-22">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-22 bg-purple text-white">
       <div className="container flex flex-col items-center">
         <div className="rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
@@ -50,8 +50,8 @@ export function Header78() {
             complexity.
           </p>
           <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-            <Button>Work with me</Button>
-            <Button variant="secondary">See my approach</Button>
+            <Button href="/contact">Work with me</Button>
+            <Button variant="secondary" href="/about">See my approach</Button>
           </div>
         </div>
         <div className="flex w-screen justify-start overflow-hidden">

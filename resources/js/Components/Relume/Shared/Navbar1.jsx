@@ -2,6 +2,7 @@
 
 import { useMediaQuery } from "@relume_io/relume-ui";
 import { Button } from "./Button";
+import { NavLink } from "./NavLink";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
@@ -44,7 +45,7 @@ export function Navbar1() {
   return (
     <section
       id="relume"
-      className="flex w-full items-center bg-[#F0F6F5] lg:min-h-18 lg:px-[5%]"
+      className="flex w-full items-center bg-lavender lg:min-h-18 lg:px-[5%]"
     >
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
@@ -107,26 +108,11 @@ export function Navbar1() {
           exit="close"
           animate={useActive.animateMobileMenu}
           transition={{ duration: 0.4 }}
-          className="overflow-hidden px-[5%] lg:flex lg:items-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
+          className="overflow-hidden px-[5%] lg:flex lg:items-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto] text-white"
         >
-          <Link
-            href="/about"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            About
-          </Link>
-          <Link
-            href="/services"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Services
-          </Link>
-          <Link
-            href="/contact"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Contact
-          </Link>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/services">Services</NavLink>
+    
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
@@ -134,7 +120,7 @@ export function Navbar1() {
 
           </div>
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-            <Button className="w-full lg:w-auto">Start</Button>
+            <Button className="w-full lg:w-auto" href="/contact">Contact me</Button>
           </div>
         </motion.div>
       </div>

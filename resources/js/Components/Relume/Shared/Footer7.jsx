@@ -1,51 +1,42 @@
 "use client";
 
 import React from "react";
+import { Link } from "@inertiajs/react";
+import { NavLink } from "./NavLink";
 
 export function Footer7() {
   return (
-    <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20">
+    <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20 bg-plum text-white">
       <div className="container">
         <div className="flex flex-col items-center pb-12 md:pb-18 lg:pb-20">
-          <a href="/" className="mb-8">
+          <Link href="/" className="mb-8">
             <img
               src="/images/logo.png"
               alt="Logo image"
               className="inline-block h-10 w-auto"
             />
-          </a>
+          </Link>
           <ul className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-[max-content] md:justify-center md:justify-items-start">
-            <li className="font-semibold">
-              <a href="#">Portfolio</a>
+            <li>
+              <NavLink href="/portfolio">Portfolio</NavLink>
             </li>
-            <li className="font-semibold">
-              <a href="#">Projects</a>
+            <li>
+              <NavLink href="/projects">Projects</NavLink>
             </li>
-            <li className="font-semibold">
-              <a href="#">Case studies</a>
+            <li>
+              <NavLink href="/case-studies">Case studies</NavLink>
             </li>
-            <li className="font-semibold">
-              <a href="#">All work</a>
+            <li>
+              <NavLink href="/work">All work</NavLink>
             </li>
-            <li className="font-semibold">
-              <a href="#">Services</a>
+            <li>
+              <NavLink href="/services">Services</NavLink>
             </li>
           </ul>
         </div>
-        <div className="h-px w-full bg-black" />
+        <div className="h-px w-full bg-white" />
         <div className="flex flex-col-reverse items-center justify-between pb-4 pt-6 text-center text-sm md:flex-row md:pb-0 md:pt-8">
-          <p className="mt-8 md:mt-0">© 2024 Relume. All rights reserved.</p>
-          <ul className="grid grid-flow-row grid-cols-[max-content] justify-center gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
-            <li className="underline decoration-black underline-offset-1">
-              <a href="#">Privacy policy</a>
-            </li>
-            <li className="underline decoration-black underline-offset-1">
-              <a href="#">Terms of service</a>
-            </li>
-            <li className="underline decoration-black underline-offset-1">
-              <a href="#">Cookie settings</a>
-            </li>
-          </ul>
+          <p className="mt-8 md:mt-0 font-regular italic">© 2026 Beliavska Web Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>
