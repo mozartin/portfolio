@@ -18,19 +18,19 @@ export function Footer7() {
           </Link>
           <ul className="grid grid-flow-row grid-cols-1 items-start justify-center justify-items-center gap-6 md:grid-flow-col md:grid-cols-[max-content] md:justify-center md:justify-items-start">
             <li>
-              <NavLink href="/portfolio">Portfolio</NavLink>
+              <NavLink href="/portfolio" variant="light">Portfolio</NavLink>
             </li>
             <li>
-              <NavLink href="/projects">Projects</NavLink>
+              <NavLink href="/projects" variant="light">Projects</NavLink>
             </li>
             <li>
-              <NavLink href="/case-studies">Case studies</NavLink>
+              <NavLink href="/case-studies" variant="light">Case studies</NavLink>
             </li>
             <li>
-              <NavLink href="/work">All work</NavLink>
+              <NavLink href="/work" variant="light">All work</NavLink>
             </li>
             <li>
-              <NavLink href="/services">Services</NavLink>
+              <NavLink href="/services" variant="light">Services</NavLink>
             </li>
           </ul>
         </div>
