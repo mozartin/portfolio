@@ -100,7 +100,7 @@ export function Header78() {
   return (
     <section 
       id="relume" 
-      className="relative px-[5%] py-16 md:py-24 lg:py-22 bg-purple text-white overflow-hidden"
+      className="relative px-[5%] py-16 md:py-24 lg:py-22 bg-plum text-white overflow-hidden"
     >
       <StarField />
       <div className="container flex flex-col items-center relative z-10">

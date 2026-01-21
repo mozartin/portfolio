@@ -6,33 +6,33 @@ import { BiCheck } from "react-icons/bi";
 
 export function Pricing20() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
       <div className="container">
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4">Pricing</p>
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-            Calm, structured websites — built end-to-end
+          <p className="mb-3 md:mb-4 font-regular italic">Pricing</p>
+          <h1 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
+            Calm, structured websites built end-to-end
           </h1>
-          <p className="md:text-md">
+          <p className="md:text-md font-regular">
             I work with a limited number of projects and focus on quality,
             clarity, and long-term maintainability.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="h-full border border-border-primary px-6 py-8 md:p-8">
-            <h2 className="mb-1 text-md font-bold leading-[1.4] md:text-xl">
-              Essential Website
+            <h2 className="mb-1 text-md font-bold font-heading leading-[1.4] md:text-xl">
+              Essential Website <br /><br />
             </h2>
-            <p>For solo professionals and small local businesses</p>
+            <p className="font-regular">For solo professionals and small local businesses</p>
             <div className="my-8 h-px w-full bg-border-primary" />
-            <h3 className="my-2 text-6xl font-bold md:text-9xl lg:text-10xl">
+            <h3 className="my-2 text-6xl font-bold font-heading md:text-9xl lg:text-10xl">
               €600
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button className="w-full">Get started</Button>
+              <Button variant="primary-light" className="w-full">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
-            <div className="grid grid-cols-1 gap-y-4 py-2">
+            <div className="grid grid-cols-1 gap-y-4 py-2 font-regular">
               <div className="flex self-start">
                 <div className="mr-4 flex-none self-start">
                   <BiCheck className="size-6" />
@@ -72,19 +72,19 @@ export function Pricing20() {
             </div>
           </div>
           <div className="h-full border border-border-primary px-6 py-8 md:p-8">
-            <h2 className="mb-1 text-md font-bold leading-[1.4] md:text-xl">
+            <h2 className="mb-1 text-md font-bold font-heading leading-[1.4] md:text-xl">
               Professional Business Website
             </h2>
-            <p>For businesses that need trust and a polished presence</p>
+            <p className="font-regular">For businesses that need trust and a polished presence</p>
             <div className="my-8 h-px w-full bg-border-primary" />
-            <h3 className="my-2 text-6xl font-bold md:text-9xl lg:text-10xl">
+            <h3 className="my-2 text-6xl font-bold font-heading md:text-9xl lg:text-10xl">
               €1100
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button className="w-full">Get started</Button>
+              <Button variant="primary-light" className="w-full">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
-            <div className="grid grid-cols-1 gap-y-4 py-2">
+            <div className="grid grid-cols-1 gap-y-4 py-2 font-regular">
               <div className="flex self-start">
                 <div className="mr-4 flex-none self-start">
                   <BiCheck className="size-6" />
@@ -124,19 +124,19 @@ export function Pricing20() {
             </div>
           </div>
           <div className="h-full border border-border-primary px-6 py-8 md:p-8">
-            <h2 className="mb-1 text-md font-bold leading-[1.4] md:text-xl">
-              Founder offer (limited)
+            <h2 className="mb-1 text-md font-bold font-heading leading-[1.4] md:text-xl">
+              Founder offer (limited) <br /><br />
             </h2>
-            <p>For early-stage projects and first collaborations</p>
+            <p className="font-regular">For early-stage projects and first collaborations <br /><br /></p>
             <div className="my-8 h-px w-full bg-border-primary" />
-            <h3 className="my-2 text-6xl font-bold md:text-9xl lg:text-10xl">
+            <h3 className="my-2 text-6xl font-bold font-heading md:text-9xl lg:text-10xl">
               €1,700
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button className="w-full">Get started</Button>
+              <Button variant="primary-light" className="w-full">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
-            <div className="grid grid-cols-1 gap-y-4 py-2">
+            <div className="grid grid-cols-1 gap-y-4 py-2 font-regular">
               <div className="flex self-start">
                 <div className="mr-4 flex-none self-start">
                   <BiCheck className="size-6" />

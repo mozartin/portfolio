@@ -28,6 +28,7 @@ export default {
                 'purple': '#8A6FA9',
                 'mist': '#F3F0F6',
                 'plum': '#372C43',
+                'blush': '#FCF4F6',
             },
         },
     },
