@@ -14,7 +14,7 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
     target: ref,
     offset: ["start end", "end start"]
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
 
   return (
     <section ref={ref} id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden">
@@ -103,9 +103,13 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
       <div className="absolute inset-0 z-0">
         <motion.img
           src="/images/code-bg.jpg"
-          className="absolute inset-0 w-full h-[140%] object-cover -top-[20%]"
+          className="absolute inset-0 w-full h-[150%] object-cover -top-[25%]"
           alt="Background"
-          style={{ y }}
+          style={{ 
+            y,
+            willChange: "transform",
+            transform: "translateZ(0)",
+          }}
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
