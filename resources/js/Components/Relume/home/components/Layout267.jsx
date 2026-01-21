@@ -14,7 +14,7 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
     target: ref,
     offset: ["start end", "end start"]
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
   return (
     <section ref={ref} id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden">
