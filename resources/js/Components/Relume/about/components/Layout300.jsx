@@ -19,11 +19,11 @@ export function Layout300() {
           </div>
           <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4">
             <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-32 md:h-40">
+              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-1.png"
                   alt="Relume placeholder image 1"
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold font-heading md:mb-4 md:text-2xl">
@@ -35,11 +35,11 @@ export function Layout300() {
               </p>
             </div>
             <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-32 md:h-40">
+              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-2.png"
                   alt="Relume placeholder image 1"
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl font-heading">
@@ -51,11 +51,11 @@ export function Layout300() {
               </p>
             </div>
             <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-32 md:h-40">
+              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-3.png"
                   alt="Relume placeholder image 1"
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl font-heading">
@@ -67,11 +67,11 @@ export function Layout300() {
               </p>
             </div>
             <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-32 md:h-40">
+              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-4.png"
                   alt="Relume placeholder image 1"
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl font-heading">
@@ -85,8 +85,8 @@ export function Layout300() {
             </div>
           </div>
           <div className="mt-12 flex w-full flex-wrap items-center justify-center gap-4 md:mt-18 lg:mt-20">
-            <Button variant="primary-light">Services</Button>
-            <Button variant="secondary-light" iconRight={<RxChevronRight />}>Contact</Button>
+            <Button variant="primary-light" href="/services">Services</Button>
+            <Button variant="secondary-light" iconRight={<RxChevronRight />} href="/contact">Contact</Button>
           </div>
         </div>
       </div>

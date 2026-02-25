@@ -14,7 +14,7 @@ export function Layout22() {
               <img
                 src="/images/logo-icon.png"
                 className="size-20"
-                alt="Relume logo"
+                alt="logo"
               />
             </div>
             <h2 className="rb-5 mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
@@ -27,8 +27,8 @@ export function Layout22() {
               presence, so I decided to change that.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button variant="primary-light">Services</Button>
-              <Button variant="secondary-light" iconRight={<RxChevronRight />}>Contact</Button>
+              <Button variant="primary-light" href="/services">Services</Button>
+              <Button variant="secondary-light" iconRight={<RxChevronRight />} href="/contact">Contact</Button>
             </div>
           </div>
           <div>

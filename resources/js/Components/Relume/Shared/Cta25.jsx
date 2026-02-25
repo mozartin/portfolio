@@ -31,7 +31,6 @@ export function Cta25({ canAnimate = true, onAnimationComplete }) {
         </p>
         <div className="mt-6 flex items-center justify-center gap-4 md:mt-8">
           <Button variant="primary-light" href="/contact">Work with me</Button>
-          <Button variant="secondary-light" href="/about">About me</Button>
         </div>
       </motion.div>
     </section>

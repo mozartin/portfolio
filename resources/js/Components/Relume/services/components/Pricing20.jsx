@@ -29,7 +29,7 @@ export function Pricing20() {
               €600
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button variant="primary-light" className="w-full">Get started</Button>
+              <Button variant="primary-light" className="w-full" href="/contact">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
             <div className="grid grid-cols-1 gap-y-4 py-2 font-regular">
@@ -81,7 +81,7 @@ export function Pricing20() {
               €1100
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button variant="primary-light" className="w-full">Get started</Button>
+              <Button variant="primary-light" className="w-full" href="/contact">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
             <div className="grid grid-cols-1 gap-y-4 py-2 font-regular">
@@ -133,7 +133,7 @@ export function Pricing20() {
               €1,700
             </h3>
             <div className="mt-6 md:mt-8">
-              <Button variant="primary-light" className="w-full">Get started</Button>
+              <Button variant="primary-light" className="w-full" href="/contact">Get started</Button>
             </div>
             <div className="my-8 h-px w-full bg-border-primary" />
             <div className="grid grid-cols-1 gap-y-4 py-2 font-regular">

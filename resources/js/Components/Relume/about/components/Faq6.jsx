@@ -21,7 +21,7 @@ export function Faq6() {
           Answers to what you need to know about the process and approach
         </p>
         <div className="mt-6 md:mt-8">
-          <Button variant="primary-light">Contact</Button>
+          <Button variant="primary-light" href="/contact">Contact</Button>
         </div>
         <Accordion
           type="multiple"
