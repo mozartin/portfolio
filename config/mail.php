@@ -1,0 +1,34 @@
+<?php
+
+return [
+
+    'default' => env('MAIL_MAILER', 'smtp'),
+
+    'mailers' => [
+        'smtp' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'smtp.resend.com'),
+            'port' => env('MAIL_PORT', 465),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_USERNAME', 'resend'),
+            'password' => env('MAIL_PASSWORD'),
+            'timeout' => null,
+        ],
+
+        'log' => [
+            'transport' => 'log',
+            'channel' => env('MAIL_LOG_CHANNEL'),
+        ],
+
+        'array' => [
+            'transport' => 'array',
+        ],
+    ],
+
+    'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'onboarding@resend.dev'),
+        'name' => env('MAIL_FROM_NAME', 'Beliavska Web Studio'),
+    ],
+
+];
+
