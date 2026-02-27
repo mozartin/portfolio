@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactNotification extends Mailable
+class ContactAutoReply extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -22,21 +22,18 @@ class ContactNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Contact Form Submission — ' . $this->contactData['name'],
+            subject: 'Thank you for reaching out — Beliavska Web Studio',
         );
     }
 
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact-notification',
+            view: 'emails.contact-auto-reply',
             with: [
                 'name' => $this->contactData['name'],
-                'email' => $this->contactData['email'],
-                'contactMessage' => $this->contactData['message'],
             ],
         );
     }
 }
-
 
