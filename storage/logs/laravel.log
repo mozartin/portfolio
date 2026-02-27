@@ -1938,3 +1938,4 @@
 #8 /var/www/html/public/index.php(67): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #9 {main}
 "} 
+[2026-02-27 22:01:00] local.ERROR: Contact form email failed: Expected response code "250" but got code "550", with message "550 You can only send testing emails to your own email address (elenabeliavska2@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.".  
