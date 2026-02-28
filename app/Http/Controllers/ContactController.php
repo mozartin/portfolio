@@ -17,9 +17,9 @@ class ContactController extends Controller
             'message' => 'required|string|max:5000',
         ]);
 
-        $apiKey = env('MAIL_PASSWORD', config('mail.mailers.smtp.password'));
-        $fromName = env('MAIL_FROM_NAME', config('mail.from.name', 'Olena Beliavska'));
-        $fromAddress = env('MAIL_FROM_ADDRESS', config('mail.from.address', 'onboarding@resend.dev'));
+        $apiKey = config('mail.mailers.smtp.password');
+        $fromName = config('mail.from.name', 'Olena Beliavska');
+        $fromAddress = config('mail.from.address', 'hello@beliavska.com');
         $from = $fromName . ' <' . $fromAddress . '>';
 
         // Send notification to site owner
