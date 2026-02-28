@@ -21,7 +21,7 @@
 
         <p class="body-text">
             I've received your message and appreciate you taking the time to get in touch.
-            I'll review your inquiry and get back to you as soon as possible — usually within 1–2 business days.
+            I'll review your inquiry and get back to you as soon as possible - usually within 1-2 business days.
         </p>
 
         <p class="body-text">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="footer">
-            This is an automated reply from Olena Beliavska — beliavska.com
+            This is an automated reply from Olena Beliavska - beliavska.com
         </div>
     </div>
 </body>

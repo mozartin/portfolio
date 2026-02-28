@@ -23,7 +23,7 @@ export function Layout22() {
             <p className="md:text-md font-regular">
               I started building websites because I believe great ideas deserve 
               great digital experiences. Too many businesses and creators have 
-              visions that don't match their online presence — I'm here to change that.
+              visions that don't match their online presence - I'm here to change that.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
               <Button variant="primary-light" href="/services">Services</Button>

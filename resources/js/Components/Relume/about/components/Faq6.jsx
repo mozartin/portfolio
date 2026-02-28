@@ -60,7 +60,7 @@ export function Faq6() {
             <AccordionContent className="md:pb-6">
               I work on websites, web applications, landing pages, and custom 
               digital solutions. From small business sites to more complex 
-              full-stack projects — every one gets the same attention and care.
+              full-stack projects - every one gets the same attention and care.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem
@@ -76,7 +76,7 @@ export function Faq6() {
               What's included in a project?
             </AccordionTrigger>
             <AccordionContent className="md:pb-6">
-              Design, development, testing, and deployment — handled end-to-end.
+              Design, development, testing, and deployment - handled end-to-end.
               You get a polished website with responsive layouts, fast 
               performance, and clean, maintainable code.
             </AccordionContent>

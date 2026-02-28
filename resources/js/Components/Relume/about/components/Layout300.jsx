@@ -14,7 +14,7 @@ export function Layout300() {
               How I work
             </h2>
             <p className="text-center md:text-md font-regular">
-              A clear, considered process — from idea to production
+              A clear, considered process - from idea to production
             </p>
           </div>
           <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4">
@@ -46,7 +46,7 @@ export function Layout300() {
                 Design that serves the user
               </h3>
               <p className="text-center">
-                I design interfaces based on how real people use them — intuitive 
+                I design interfaces based on how real people use them - intuitive 
                 navigation, clear hierarchy, and responsive layouts across all devices.
               </p>
             </div>

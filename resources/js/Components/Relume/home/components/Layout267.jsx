@@ -37,15 +37,7 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
         </div>
         <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
           <div className="w-full text-center">
-            <div className="mb-5 h-12 md:mb-6">
-              <div className="inline-block">
-                <img
-                  src="/images/icon-placeholder.svg"
-                  className="size-12"
-                  alt="Feature icon"
-                />
-              </div>
-            </div>
+            
             <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
               End-to-end delivery
             </h3>
@@ -55,33 +47,15 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
             </p>
           </div>
           <div className="w-full text-center">
-            <div className="mb-5 h-12 md:mb-6">
-              <div className="inline-block">
-                <img
-                  src="/images/icon-placeholder.svg"
-                  className="size-12"
-                  alt="Feature icon"
-                />
-              </div>
-            </div>
             <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
               Modern tech stack
             </h3>
             <p className="text-text-alternative font-regular">
-              React, Laravel, Tailwind CSS, Inertia.js, Docker — I use modern, 
+              React, Laravel, Tailwind CSS, Inertia.js, Docker - I use modern, 
               reliable tools to build scalable web solutions.
             </p>
           </div>
           <div className="w-full text-center">
-            <div className="mb-5 h-12 md:mb-6">
-              <div className="inline-block">
-                <img
-                  src="/images/icon-placeholder.svg"
-                  className="size-12"
-                  alt="Feature icon"
-                />
-              </div>
-            </div>
             <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
               Clean by design
             </h3>

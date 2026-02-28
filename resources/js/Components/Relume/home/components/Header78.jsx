@@ -74,11 +74,11 @@ export function Header78() {
       <div className="container flex flex-col items-center relative z-10">
         <div className="rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
-            I build websites that work — clean, fast & thoughtful
+            I build websites that work - clean, fast & thoughtful
           </h1>
           <p className="md:text-md font-regular italic">
             Full-stack web developer crafting modern, responsive websites and web applications. 
-            From concept to deployment — I handle design, code, and everything in between.
+            From concept to deployment - I handle design, code, and everything in between.
           </p>
           <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
             <Button href="/contact">Start a project</Button>

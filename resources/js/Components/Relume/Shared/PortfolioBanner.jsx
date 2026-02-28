@@ -23,7 +23,7 @@ export function PortfolioBanner() {
         <p className="text-xs md:text-sm text-white/70 font-regular italic leading-relaxed">
           This is a full-stack portfolio site built by{" "}
           <span className="text-lavender font-bold not-italic">Olena Beliavska</span>
-          {" "}— designed and developed from scratch, showcasing a complete
+          {" "}- designed and developed from scratch, showcasing a complete
           workflow: concept, UI design, frontend, backend, and deployment.
         </p>
         <p className="mt-1.5 text-[0.65rem] md:text-xs text-lavender/80 font-regular">

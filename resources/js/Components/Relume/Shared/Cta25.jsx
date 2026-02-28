@@ -26,7 +26,7 @@ export function Cta25({ canAnimate = true, onAnimationComplete }) {
           Have a project in mind?
         </h2>
         <p className="md:text-md font-regular">
-          Whether you need a website, a web application, or a reliable development partner — 
+          Whether you need a website, a web application, or a reliable development partner - 
           let's talk and bring your idea to life.
         </p>
         <div className="mt-6 flex items-center justify-center gap-4 md:mt-8">

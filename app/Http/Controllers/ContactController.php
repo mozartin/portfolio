@@ -35,7 +35,7 @@ class ContactController extends Controller
             $response = Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
                 'from' => $from,
                 'to' => ['elenabeliavska2@gmail.com'],
-                'subject' => 'New Contact Form Submission — ' . $validated['name'],
+                'subject' => 'New Contact Form Submission - ' . $validated['name'],
                 'html' => $notificationHtml,
             ]);
             Log::info('Resend notification response: ' . $response->status() . ' ' . $response->body());
@@ -52,7 +52,7 @@ class ContactController extends Controller
             $response = Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
                 'from' => $from,
                 'to' => [$validated['email']],
-                'subject' => 'Thank you for reaching out — Olena Beliavska',
+                'subject' => 'Thank you for reaching out - Olena Beliavska',
                 'html' => $autoReplyHtml,
             ]);
             Log::info('Resend auto-reply response: ' . $response->status() . ' ' . $response->body());
