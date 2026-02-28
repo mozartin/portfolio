@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactNotification;
-use App\Mail\ContactAutoReply;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {
@@ -17,24 +17,43 @@ class ContactController extends Controller
             'message' => 'required|string|max:5000',
         ]);
 
+        $apiKey = config('mail.mailers.smtp.password');
+        $from = config('mail.from.address') . ' <' . config('mail.from.name') . '>';
+
         // Send notification to site owner
         try {
-            Mail::to('elenabeliavska2@gmail.com')
-                ->send(new ContactNotification($validated));
+            $notificationHtml = View::make('emails.contact-notification', [
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'contactMessage' => $validated['message'],
+            ])->render();
+
+            Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
+                'from' => $from,
+                'to' => ['elenabeliavska2@gmail.com'],
+                'subject' => 'New Contact Form Submission — ' . $validated['name'],
+                'html' => $notificationHtml,
+            ]);
         } catch (\Exception $e) {
-            \Log::error('Contact form email failed: ' . $e->getMessage());
+            Log::error('Contact form email failed: ' . $e->getMessage());
         }
 
         // Send auto-reply to the person who submitted the form
         try {
-            Mail::to($validated['email'])
-                ->send(new ContactAutoReply($validated));
+            $autoReplyHtml = View::make('emails.contact-auto-reply', [
+                'name' => $validated['name'],
+            ])->render();
+
+            Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
+                'from' => $from,
+                'to' => [$validated['email']],
+                'subject' => 'Thank you for reaching out — Beliavska Web Studio',
+                'html' => $autoReplyHtml,
+            ]);
         } catch (\Exception $e) {
-            \Log::error('Contact auto-reply failed: ' . $e->getMessage());
+            Log::error('Contact auto-reply failed: ' . $e->getMessage());
         }
 
         return back()->with('success', true);
     }
 }
-
-
