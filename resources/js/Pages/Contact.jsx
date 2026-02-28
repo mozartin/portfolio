@@ -5,7 +5,7 @@ import ContactPage from '../Components/Relume/contact/index';
 export default function Contact() {
     return (
         <>
-            <Head title="Contact Us" />
+            <Head title="Contact" />
             <ContactPage />
         </>
     );

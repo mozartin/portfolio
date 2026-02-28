@@ -27,7 +27,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'onboarding@resend.dev'),
-        'name' => env('MAIL_FROM_NAME', 'Beliavska Web Studio'),
+        'name' => env('MAIL_FROM_NAME', 'Olena Beliavska'),
     ],
 
 ];

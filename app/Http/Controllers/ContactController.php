@@ -18,7 +18,7 @@ class ContactController extends Controller
         ]);
 
         $apiKey = env('MAIL_PASSWORD', config('mail.mailers.smtp.password'));
-        $fromName = env('MAIL_FROM_NAME', config('mail.from.name', 'Beliavska Web Studio'));
+        $fromName = env('MAIL_FROM_NAME', config('mail.from.name', 'Olena Beliavska'));
         $fromAddress = env('MAIL_FROM_ADDRESS', config('mail.from.address', 'onboarding@resend.dev'));
         $from = $fromName . ' <' . $fromAddress . '>';
 
@@ -50,7 +50,7 @@ class ContactController extends Controller
             $response = Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
                 'from' => $from,
                 'to' => [$validated['email']],
-                'subject' => 'Thank you for reaching out — Beliavska Web Studio',
+                'subject' => 'Thank you for reaching out — Olena Beliavska',
                 'html' => $autoReplyHtml,
             ]);
             Log::info('Resend auto-reply response: ' . $response->status() . ' ' . $response->body());

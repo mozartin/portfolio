@@ -22,7 +22,7 @@ class ContactAutoReply extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Thank you for reaching out — Beliavska Web Studio',
+            subject: 'Thank you for reaching out — Olena Beliavska',
         );
     }
 

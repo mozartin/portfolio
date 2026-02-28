@@ -35,7 +35,7 @@
         </div>
 
         <div class="footer">
-            This is an automated reply from beliavska.com
+            This is an automated reply from Olena Beliavska — beliavska.com
         </div>
     </div>
 </body>

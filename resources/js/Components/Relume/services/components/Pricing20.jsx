@@ -11,11 +11,11 @@ export function Pricing20() {
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <p className="mb-3 md:mb-4 font-regular italic">Pricing</p>
           <h1 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
-            Calm, structured websites built end-to-end
+            Web development services, end-to-end
           </h1>
           <p className="md:text-md font-regular">
-            I work with a limited number of projects and focus on quality,
-            clarity, and long-term maintainability.
+            I take on a limited number of projects at a time to ensure quality, 
+            clear communication, and results that last.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -23,7 +23,7 @@ export function Pricing20() {
             <h2 className="mb-1 text-md font-bold font-heading leading-[1.4] md:text-xl">
               Essential Website <br /><br />
             </h2>
-            <p className="font-regular">For solo professionals and small local businesses</p>
+            <p className="font-regular">For freelancers, startups, and small businesses</p>
             <div className="my-8 h-px w-full bg-border-primary" />
             <h3 className="my-2 text-6xl font-bold font-heading md:text-9xl lg:text-10xl">
               €600
@@ -75,7 +75,7 @@ export function Pricing20() {
             <h2 className="mb-1 text-md font-bold font-heading leading-[1.4] md:text-xl">
               Professional Business Website
             </h2>
-            <p className="font-regular">For businesses that need trust and a polished presence</p>
+            <p className="font-regular">For businesses that need a polished, trustworthy online presence</p>
             <div className="my-8 h-px w-full bg-border-primary" />
             <h3 className="my-2 text-6xl font-bold font-heading md:text-9xl lg:text-10xl">
               €1100
@@ -125,12 +125,12 @@ export function Pricing20() {
           </div>
           <div className="h-full border border-border-primary px-6 py-8 md:p-8">
             <h2 className="mb-1 text-md font-bold font-heading leading-[1.4] md:text-xl">
-              Founder offer (limited) <br /><br />
+              Custom Web Application <br /><br />
             </h2>
-            <p className="font-regular">For early-stage projects and first collaborations <br /><br /></p>
+            <p className="font-regular">For projects that need custom logic and full-stack development <br /><br /></p>
             <div className="my-8 h-px w-full bg-border-primary" />
             <h3 className="my-2 text-6xl font-bold font-heading md:text-9xl lg:text-10xl">
-              €1,700
+              €1,700+
             </h3>
             <div className="mt-6 md:mt-8">
               <Button variant="primary-light" className="w-full" href="/contact">Get started</Button>

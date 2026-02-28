@@ -21,10 +21,9 @@ export function Layout22() {
               The work began with a simple belief
             </h2>
             <p className="md:text-md font-regular">
-              I started building websites because I saw brands that deserved
-              better. The beauty, wellness, and sports industries were full of
-              talented people with visions that didn't match their digital
-              presence, so I decided to change that.
+              I started building websites because I believe great ideas deserve 
+              great digital experiences. Too many businesses and creators have 
+              visions that don't match their online presence — I'm here to change that.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
               <Button variant="primary-light" href="/services">Services</Button>

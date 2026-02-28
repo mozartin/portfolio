@@ -106,16 +106,15 @@ export function Header78() {
       <div className="container flex flex-col items-center relative z-10">
         <div className="rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
-            Calm, structured websites for wellness, beauty & sport businesses
+            I build websites that work — clean, fast & thoughtful
           </h1>
           <p className="md:text-md font-regular italic">
-            I design and build clear, fast, and maintainable websites that help
-            small brands look professional and grow — without unnecessary
-            complexity.
+            Full-stack web developer crafting modern, responsive websites and web applications. 
+            From concept to deployment — I handle design, code, and everything in between.
           </p>
           <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-            <Button href="/contact">Work with me</Button>
-            <Button variant="secondary" href="/about">See my approach</Button>
+            <Button href="/contact">Start a project</Button>
+            <Button variant="secondary" href="/about">Learn about me</Button>
           </div>
         </div>
         <div className="flex w-screen justify-start overflow-hidden">

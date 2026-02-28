@@ -30,9 +30,9 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
         }}
       >
         <div className="mx-auto mb-12 max-w-lg text-center text-text-alternative md:mb-18 lg:mb-20">
-          <p className="mb-3 md:mb-4 font-regular italic">Built</p>
+          <p className="mb-3 md:mb-4 font-regular italic">What I do</p>
           <h2 className="mb-5 text-5xl font-heading md:mb-6 md:text-7xl lg:text-8xl">
-            A considered approach
+            My approach to building
           </h2>
         </div>
         <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
@@ -47,11 +47,11 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
               </div>
             </div>
             <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-              Idea to production
+              End-to-end delivery
             </h3>
             <p className="text-text-alternative font-regular">
-              Design → frontend → backend → deployment. One person. One
-              responsibility.
+              Design → frontend → backend → deployment. I own the full process 
+              and deliver production-ready results.
             </p>
           </div>
           <div className="w-full text-center">
@@ -65,11 +65,11 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
               </div>
             </div>
             <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-              Focused niche
+              Modern tech stack
             </h3>
             <p className="text-text-alternative font-regular">
-              I work with wellness, beauty, and sport projects — studios,
-              coaches, and small brands.
+              React, Laravel, Tailwind CSS, Inertia.js, Docker — I use modern, 
+              reliable tools to build scalable web solutions.
             </p>
           </div>
           <div className="w-full text-center">
@@ -83,20 +83,20 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
               </div>
             </div>
             <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-              Calm by design
+              Clean by design
             </h3>
             <p className="text-text-alternative font-regular">
-              Clean layouts, focused content, no visual noise. The site supports
-              your message and your business.
+              Readable code, intuitive layouts, no unnecessary complexity. 
+              Every project is built to be understood, maintained, and extended.
             </p>
           </div>
         </div>
         <div className="mt-12 flex flex-wrap justify-center gap-4 md:mt-18 lg:mt-20">
           <Button variant="primary" href="/services">
-            See services
+            View services
           </Button>
           <Button variant="secondary" href="/contact">
-            Work with me
+            Start a project
           </Button>
         </div>
       </motion.div>

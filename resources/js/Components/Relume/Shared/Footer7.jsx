@@ -33,7 +33,7 @@ export function Footer7() {
         </div>
         <div className="h-px w-full bg-white" />
         <div className="flex flex-col-reverse items-center justify-between pb-4 pt-6 text-center text-sm md:flex-row md:pb-0 md:pt-8">
-          <p className="mt-8 md:mt-0 font-regular italic">© 2026 Beliavska Web Studio. All rights reserved.</p>
+          <p className="mt-8 md:mt-0 font-regular italic">© 2026 Olena Beliavska. All rights reserved.</p>
         </div>
       </div>
     </footer>

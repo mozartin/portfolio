@@ -35,7 +35,7 @@ export function Contact7() {
             <h2 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
               Get in touch
             </h2>
-            <p className="md:text-md font-regular">Tell us about your vision and goals</p>
+            <p className="md:text-md font-regular">Tell me about your project or idea — let's see how I can help</p>
           </div>
 
           {recentlySuccessful && (

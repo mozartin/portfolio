@@ -10,12 +10,12 @@ export function Header145() {
         <div className="container max-w-lg">
           <div className="flex w-full flex-col items-center text-center">
             <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-              Beautiful web solutions for beauty, wellness, and sports
+              Modern web solutions built with care
             </h1>
             <p className="md:text-md">
-              I build clean, modern websites that help beauty brands, wellness
-              practitioners, and sports businesses connect with their audience.
-              Simple design. Real results.
+              I build clean, modern websites and web applications that help 
+              businesses and creators connect with their audience. 
+              Thoughtful design. Real results.
             </p>
             <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
               <Button>View portfolio</Button>

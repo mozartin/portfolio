@@ -7,7 +7,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { CustomCursor } from './Components/Relume/Shared/CustomCursor';
 import { PortfolioBanner } from './Components/Relume/Shared/PortfolioBanner';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Web Studio';
+const appName = import.meta.env.VITE_APP_NAME || 'Olena Beliavska';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,

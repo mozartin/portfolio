@@ -23,11 +23,11 @@ export function Layout36({ canAnimate = true, onAnimationComplete }) {
       >
         <div className="w-full max-w-md">
           <h3 className="mb-5 text-4xl font-bold font-heading leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-            Built for brands that value simplicity
+            Development with purpose, not just code
           </h3>
           <p className="md:text-md font-regular">
-            I'm a web developer with real production experience. I care about
-            clarity — in design, code, and communication.
+            I'm a full-stack web developer who builds with intention. Every project 
+            I take on is grounded in clean architecture, clear communication, and real production standards.
           </p>
         </div>
       </motion.div>

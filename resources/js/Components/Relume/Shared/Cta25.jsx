@@ -23,14 +23,14 @@ export function Cta25({ canAnimate = true, onAnimationComplete }) {
         }}
       >
         <h2 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
-          Ready to build something real
+          Have a project in mind?
         </h2>
         <p className="md:text-md font-regular">
-          I'm a web developer with real production experience. I care about
-          clarity — in design, code, and communication.
+          Whether you need a website, a web application, or a reliable development partner — 
+          let's talk and bring your idea to life.
         </p>
         <div className="mt-6 flex items-center justify-center gap-4 md:mt-8">
-          <Button variant="primary-light" href="/contact">Work with me</Button>
+          <Button variant="primary-light" href="/contact">Get in touch</Button>
         </div>
       </motion.div>
     </section>

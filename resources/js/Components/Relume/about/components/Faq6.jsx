@@ -18,7 +18,7 @@ export function Faq6() {
           Questions
         </h2>
         <p className="md:text-md font-regular">
-          Answers to what you need to know about the process and approach
+          Common questions about working with me, timelines, and what to expect
         </p>
         <div className="mt-6 md:mt-8">
           <Button variant="primary-light" href="/contact">Contact</Button>
@@ -55,12 +55,12 @@ export function Faq6() {
               }
               className="md:py-5 md:text-md [&[data-state=open]>svg]:rotate-45"
             >
-              Do you work with small businesses?
+              What types of projects do you take on?
             </AccordionTrigger>
             <AccordionContent className="md:pb-6">
-              Yes. Small businesses in beauty, wellness, and sports are the
-              focus. Every project gets the same attention and care regardless
-              of size.
+              I work on websites, web applications, landing pages, and custom 
+              digital solutions. From small business sites to more complex 
+              full-stack projects — every one gets the same attention and care.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem
@@ -77,8 +77,8 @@ export function Faq6() {
             </AccordionTrigger>
             <AccordionContent className="md:pb-6">
               Design, development, testing, and deployment — handled end-to-end.
-              You get a clear, calm website with responsive layouts, fast
-              loading times, and clean, maintainable code.
+              You get a polished website with responsive layouts, fast 
+              performance, and clean, maintainable code.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem

@@ -30,8 +30,8 @@ export function Layout300() {
                 Clarity first
               </h3>
               <p className="text-center font-regular">
-                I don’t chase trends or visual noise. Every project starts with
-                structure, hierarchy, and purpose.
+                Every project starts with understanding the goal. I focus on 
+                structure, logic, and purpose before writing a single line of code.
               </p>
             </div>
             <div className="w-full">
@@ -46,8 +46,8 @@ export function Layout300() {
                 Design that serves the user
               </h3>
               <p className="text-center">
-                Every decision starts with understanding how people interact
-                with a site, not with trends or assumptions.
+                I design interfaces based on how real people use them — intuitive 
+                navigation, clear hierarchy, and responsive layouts across all devices.
               </p>
             </div>
             <div className="w-full">
@@ -62,8 +62,8 @@ export function Layout300() {
                 Built to be maintained
               </h3>
               <p className="text-center font-regular">
-                Readable layouts, predictable logic, and clean code. Websites
-                that can be understood, extended, and supported over time.
+                Clean code, predictable architecture, and sensible patterns. 
+                Everything I build is meant to be understood, extended, and supported long-term.
               </p>
             </div>
             <div className="w-full">
@@ -78,9 +78,8 @@ export function Layout300() {
                 From concept to live site
               </h3>
               <p className="text-center font-regular">
-                I work across frontend and backend and take projects to
-                production. What I build is tested, deployed, and actually goes
-                live.
+                I handle both frontend and backend, and take projects all the way 
+                to production. What I build is tested, deployed, and ready to use.
               </p>
             </div>
           </div>

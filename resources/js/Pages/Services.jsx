@@ -5,7 +5,7 @@ import ServicesPage from '../Components/Relume/services/index';
 export default function Services() {
     return (
         <>
-            <Head title="Our Services" />
+            <Head title="Services" />
             <ServicesPage />
         </>
     );

@@ -13,10 +13,9 @@ export function Header44() {
             About me
           </h1>
           <p className="md:text-md font-regular">
-            I’m a web developer building calm, structured websites for small
-            businesses in wellness, beauty, and sport. I work independently and
-            take full responsibility for each project — from first idea to
-            production.
+            I'm a full-stack web developer who builds modern, responsive websites 
+            and web applications. I work independently and take full responsibility 
+            for each project — from concept and design to code and deployment.
           </p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
             <Button href="/services">Services</Button>

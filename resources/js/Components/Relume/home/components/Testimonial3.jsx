@@ -34,7 +34,7 @@ export function Testimonial3() {
                 />
               </div>
               <p className="font-semibold">Sarah Mitchell</p>
-              <p>Founder, Glow Wellness</p>
+              <p>Founder, Glow Studio</p>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center text-center">
@@ -70,8 +70,8 @@ export function Testimonial3() {
               />
             </div>
             <blockquote className="text-md font-bold leading-[1.4] md:text-xl">
-              "Simple, elegant, and it works. This is what a beauty brand
-              website should be."
+              "Simple, elegant, and it works. This is exactly what a modern 
+              business website should be."
             </blockquote>
             <div className="mt-6 flex flex-col items-center justify-center md:mt-8">
               <div className="mb-3 md:mb-4">

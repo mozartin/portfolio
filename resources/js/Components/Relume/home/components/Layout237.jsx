@@ -15,8 +15,8 @@ export function Layout237() {
               What I build for you
             </h2>
             <p className="md:text-md">
-              Web design and development tailored to beauty, wellness, and
-              sports brands. Sites that look good and perform better.
+              Custom web design and development for businesses and creators. 
+              Sites that look good, perform well, and are built to last.
             </p>
           </div>
           <div className="grid grid-cols-1 items-start justify-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
