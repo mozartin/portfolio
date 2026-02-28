@@ -9,7 +9,7 @@ export function Layout36({ canAnimate = true, onAnimationComplete }) {
   const shouldAnimate = canAnimate && isInView;
 
   return (
-    <section ref={ref} id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum overflow-hidden">
+    <section ref={ref} id="services-preview" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum overflow-hidden">
       <motion.div 
         className="container"
         initial={{ opacity: 0, y: 60 }}

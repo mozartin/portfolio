@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Layout300() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
+    <section id="skills" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
       <div className="container">
         <div className="flex flex-col items-start">
           <div className="mx-auto mb-12 w-full max-w-lg items-start justify-between gap-5 md:mb-18 lg:mb-20">
@@ -22,7 +22,7 @@ export function Layout300() {
               <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-1.png"
-                  alt="Relume placeholder image 1"
+                  alt="Decorative flower"
                   className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>
@@ -38,7 +38,7 @@ export function Layout300() {
               <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-2.png"
-                  alt="Relume placeholder image 1"
+                  alt="Decorative flower"
                   className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>
@@ -54,7 +54,7 @@ export function Layout300() {
               <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-3.png"
-                  alt="Relume placeholder image 1"
+                  alt="Decorative flower"
                   className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>
@@ -70,7 +70,7 @@ export function Layout300() {
               <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
                 <img
                   src="/images/flowers/flower-4.png"
-                  alt="Relume placeholder image 1"
+                  alt="Decorative flower"
                   className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
                 />
               </div>

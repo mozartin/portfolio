@@ -10,7 +10,7 @@ export function Cta25({ canAnimate = true, onAnimationComplete }) {
   const shouldAnimate = canAnimate && isInView;
 
   return (
-    <section ref={ref} id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden bg-mist text-plum">
+    <section ref={ref} id="cta" className="px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden bg-mist text-plum">
       <motion.div 
         className="container max-w-lg text-center"
         initial={{ opacity: 0, y: 60 }}

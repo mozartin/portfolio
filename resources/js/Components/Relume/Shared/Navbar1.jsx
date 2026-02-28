@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
 import { Link } from "@inertiajs/react";
 
-const useRelume = () => {
+const useNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
@@ -41,10 +41,10 @@ const useRelume = () => {
 };
 
 export function Navbar1() {
-  const useActive = useRelume();
+  const useActive = useNavbar();
   return (
     <section
-      id="relume"
+      id="navbar"
       className="flex w-full items-center bg-purple lg:min-h-18 lg:px-[5%]"
     >
       <div className="size-full lg:flex lg:items-center lg:justify-between">

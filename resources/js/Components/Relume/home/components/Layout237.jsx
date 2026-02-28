@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Layout237() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="features" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
@@ -23,8 +23,8 @@ export function Layout237() {
             <div className="flex w-full flex-col items-center text-center">
               <div className="rb-5 mb-5 md:mb-6">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
+                  src="/images/icon-placeholder.svg"
+                  alt="Feature icon"
                   className="size-12"
                 />
               </div>
@@ -39,8 +39,8 @@ export function Layout237() {
             <div className="flex w-full flex-col items-center text-center">
               <div className="rb-5 mb-5 md:mb-6">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
+                  src="/images/icon-placeholder.svg"
+                  alt="Feature icon"
                   className="size-12"
                 />
               </div>
@@ -55,8 +55,8 @@ export function Layout237() {
             <div className="flex w-full flex-col items-center text-center">
               <div className="rb-5 mb-5 md:mb-6">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                  alt="Relume logo 1"
+                  src="/images/icon-placeholder.svg"
+                  alt="Feature icon"
                   className="size-12"
                 />
               </div>

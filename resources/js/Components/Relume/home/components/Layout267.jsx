@@ -17,7 +17,7 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
 
   return (
-    <section ref={ref} id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden">
+    <section ref={ref} id="approach" className="relative px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden">
       <motion.div 
         className="container relative z-10"
         initial={{ opacity: 0, y: 60 }}
@@ -40,9 +40,9 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
             <div className="mb-5 h-12 md:mb-6">
               <div className="inline-block">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon-white.svg"
+                  src="/images/icon-placeholder.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Feature icon"
                 />
               </div>
             </div>
@@ -58,9 +58,9 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
             <div className="mb-5 h-12 md:mb-6">
               <div className="inline-block">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon-white.svg"
+                  src="/images/icon-placeholder.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Feature icon"
                 />
               </div>
             </div>
@@ -76,9 +76,9 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
             <div className="mb-5 h-12 md:mb-6">
               <div className="inline-block">
                 <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/relume-icon-white.svg"
+                  src="/images/icon-placeholder.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Feature icon"
                 />
               </div>
             </div>

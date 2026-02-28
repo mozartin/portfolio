@@ -27,7 +27,7 @@ export function Contact7() {
   };
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
+    <section id="contact-form" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
       <div className="container grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
         <div>
           <div className="mb-6 md:mb-8">
@@ -115,7 +115,7 @@ export function Contact7() {
         <div className="md:ml-20">
           <img
             src="/images/get-in-contact.jpg"
-            alt="Relume placeholder image"
+            alt="Contact illustration"
             className="size-full object-cover"
           />
         </div>

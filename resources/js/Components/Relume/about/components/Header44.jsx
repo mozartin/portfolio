@@ -5,7 +5,7 @@ import React from "react";
 
 export function Header44() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-purple text-white">
+    <section id="about-header" className="px-[5%] py-16 md:py-24 lg:py-28 bg-purple text-white">
       <div className="container">
         <div className="w-full max-w-lg">
           <p className="mb-3 md:mb-4 font-regular italic">Developer</p>

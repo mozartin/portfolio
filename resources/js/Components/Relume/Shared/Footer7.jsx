@@ -6,7 +6,7 @@ import { NavLink } from "./NavLink";
 
 export function Footer7() {
   return (
-    <footer id="relume" className="px-[5%] py-12 md:py-18 lg:py-20 bg-plum text-white">
+    <footer id="footer" className="px-[5%] py-12 md:py-18 lg:py-20 bg-plum text-white">
       <div className="container">
         <div className="flex flex-col items-center pb-12 md:pb-18 lg:pb-20">
           <Link href="/" className="mb-8">

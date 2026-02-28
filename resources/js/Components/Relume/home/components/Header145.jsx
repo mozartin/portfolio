@@ -5,7 +5,7 @@ import React from "react";
 
 export function Header145() {
   return (
-    <section id="relume">
+    <section id="header">
       <div className="px-[5%] py-16 md:py-24 lg:py-28">
         <div className="container max-w-lg">
           <div className="flex w-full flex-col items-center text-center">
@@ -28,7 +28,7 @@ export function Header145() {
         <img
           src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
           className="aspect-video size-full object-cover"
-          alt="Relume placeholder image"
+          alt="Hero image"
         />
       </div>
     </section>
