@@ -22,6 +22,8 @@ class ContactController extends Controller
         $fromAddress = config('mail.from.address', 'hello@beliavska.com');
         $from = $fromName . ' <' . $fromAddress . '>';
 
+        Log::info('Contact form: from=' . $from . ', apiKey=' . ($apiKey ? 'SET(' . substr($apiKey, 0, 8) . '...)' : 'NOT SET'));
+
         // Send notification to site owner
         try {
             $notificationHtml = View::make('emails.contact-notification', [
