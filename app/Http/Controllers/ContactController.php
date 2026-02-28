@@ -17,8 +17,10 @@ class ContactController extends Controller
             'message' => 'required|string|max:5000',
         ]);
 
-        $apiKey = config('mail.mailers.smtp.password');
-        $from = config('mail.from.address') . ' <' . config('mail.from.name') . '>';
+        $apiKey = env('MAIL_PASSWORD', config('mail.mailers.smtp.password'));
+        $fromName = env('MAIL_FROM_NAME', config('mail.from.name', 'Beliavska Web Studio'));
+        $fromAddress = env('MAIL_FROM_ADDRESS', config('mail.from.address', 'onboarding@resend.dev'));
+        $from = $fromName . ' <' . $fromAddress . '>';
 
         // Send notification to site owner
         try {
@@ -28,12 +30,13 @@ class ContactController extends Controller
                 'contactMessage' => $validated['message'],
             ])->render();
 
-            Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
+            $response = Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
                 'from' => $from,
                 'to' => ['elenabeliavska2@gmail.com'],
                 'subject' => 'New Contact Form Submission — ' . $validated['name'],
                 'html' => $notificationHtml,
             ]);
+            Log::info('Resend notification response: ' . $response->status() . ' ' . $response->body());
         } catch (\Exception $e) {
             Log::error('Contact form email failed: ' . $e->getMessage());
         }
@@ -44,12 +47,13 @@ class ContactController extends Controller
                 'name' => $validated['name'],
             ])->render();
 
-            Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
+            $response = Http::withToken($apiKey)->timeout(10)->post('https://api.resend.com/emails', [
                 'from' => $from,
                 'to' => [$validated['email']],
                 'subject' => 'Thank you for reaching out — Beliavska Web Studio',
                 'html' => $autoReplyHtml,
             ]);
+            Log::info('Resend auto-reply response: ' . $response->status() . ' ' . $response->body());
         } catch (\Exception $e) {
             Log::error('Contact auto-reply failed: ' . $e->getMessage());
         }
