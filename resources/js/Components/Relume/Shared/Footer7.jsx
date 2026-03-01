@@ -4,19 +4,22 @@ import React, { useRef } from "react";
 import { Link } from "@inertiajs/react";
 import { NavLink } from "./NavLink";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "../../../hooks/useIsMobile";
 
 export function Footer7() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const m = useIsMobile();
+  const shouldAnimate = m || isInView;
 
   return (
     <footer ref={ref} id="footer" className="px-[5%] py-12 md:py-18 lg:py-20 bg-plum-bg text-white">
       <div className="container">
         <motion.div
           className="flex flex-col items-center pb-12 md:pb-18 lg:pb-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial={m ? false : { opacity: 0, y: 30 }}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={m ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
         >
           <Link href="/" className="mb-8">
             <img
@@ -46,9 +49,9 @@ export function Footer7() {
         <div className="h-px w-full bg-white" />
         <motion.div
           className="flex flex-col-reverse items-center justify-between pb-4 pt-6 text-center text-sm md:flex-row md:pb-0 md:pt-8"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          initial={m ? false : { opacity: 0 }}
+          animate={shouldAnimate ? { opacity: 1 } : { opacity: 0 }}
+          transition={m ? { duration: 0 } : { duration: 0.5, delay: 0.2 }}
         >
           <p className="mt-8 md:mt-0 font-regular italic">© 2026 Olena Beliavska. All rights reserved.</p>
         </motion.div>

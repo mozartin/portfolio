@@ -3,38 +3,31 @@
 import { Button } from "./Button";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "../../../hooks/useIsMobile";
 
 export function Cta25({ canAnimate = true, onAnimationComplete }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const shouldAnimate = canAnimate && isInView;
+  const m = useIsMobile();
+  const shouldAnimate = m || (canAnimate && isInView);
 
   return (
     <section ref={ref} id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden bg-mist text-plum">
       <motion.div 
         className="container max-w-lg text-center"
-        initial={{ opacity: 0, y: 60 }}
+        initial={m ? false : { opacity: 0, y: 60 }}
         animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={m ? { duration: 0 } : { duration: 0.8, ease: "easeOut" }}
         onAnimationComplete={() => {
           if (shouldAnimate && onAnimationComplete) {
             onAnimationComplete();
           }
         }}
       >
-        <motion.img
+        <img
           src="/images/logo-icon.png"
           alt=""
           className="w-16 h-16 mx-auto mb-5 opacity-60"
-          animate={{ 
-            y: [0, -6, 0],
-            rotate: [0, 3, -3, 0],
-          }}
-          transition={{ 
-            duration: 5, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
         />
         <h2 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
           Looking for a developer?

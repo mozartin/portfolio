@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 const screenshots = [
   {
@@ -29,7 +30,8 @@ const screenshots = [
 export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const shouldAnimate = canAnimate && isInView;
+  const m = useIsMobile();
+  const shouldAnimate = m || (canAnimate && isInView);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -40,11 +42,11 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
     >
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={m ? false : { opacity: 0, y: 40 }}
           animate={
             shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
           }
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
           onAnimationComplete={() => {
             if (shouldAnimate && onAnimationComplete) {
               onAnimationComplete();
@@ -68,11 +70,11 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
         {/* Tab navigation */}
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-10"
-          initial={{ opacity: 0, y: 20 }}
+          initial={m ? false : { opacity: 0, y: 20 }}
           animate={
             shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
           }
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          transition={m ? { duration: 0 } : { duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
           {screenshots.map((screen, index) => (
             <button
@@ -92,11 +94,11 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
         {/* Screenshot display */}
         <motion.div
           className="relative max-w-5xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          initial={m ? false : { opacity: 0, y: 30 }}
           animate={
             shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
-          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+          transition={m ? { duration: 0 } : { duration: 0.7, delay: 0.3, ease: "easeOut" }}
         >
           <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
             {/* Browser-style top bar */}
@@ -136,4 +138,3 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
     </section>
   );
 }
-

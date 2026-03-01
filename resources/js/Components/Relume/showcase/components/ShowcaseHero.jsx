@@ -3,6 +3,7 @@
 import { Button } from "../../Shared/Button";
 import React from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 function ShowcaseGradientBg() {
   return (
@@ -57,55 +58,36 @@ function ShowcaseGradientBg() {
 }
 
 export function ShowcaseHero() {
+  const m = useIsMobile();
+
   return (
     <section
       id="showcase-hero"
       className="relative px-[5%] py-16 md:py-24 lg:py-28 text-white overflow-hidden"
     >
-      <ShowcaseGradientBg />
+      {m ? (
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#5a3d8a] via-[#4a3570] to-[#3d2b5e]" />
+      ) : (
+        <ShowcaseGradientBg />
+      )}
 
       <div className="container relative z-10">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left - text */}
           <div className="w-full">
-            <motion.div
-              className="w-12 h-0.5 bg-lavender mb-6 origin-left"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            />
-            <motion.p
-              className="mb-3 md:mb-4 font-regular italic text-lavender"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
+            <div className="w-12 h-0.5 bg-lavender mb-6" />
+            <p className="mb-3 md:mb-4 font-regular italic text-lavender">
               Pet Project &middot; Full-Stack Web App
-            </motion.p>
-            <motion.h1
-              className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-            >
+            </p>
+            <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
               FreelanceHub
-            </motion.h1>
-            <motion.p
-              className="md:text-md font-regular text-white/85 max-w-md"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-            >
+            </h1>
+            <p className="md:text-md font-regular text-white/85 max-w-md">
               A full-stack freelance marketplace demo - browse jobs, send
               proposals, manage work. Built with React, Tailwind&nbsp;CSS,
               Laravel&nbsp;API and deployed to the cloud.
-            </motion.p>
-            <motion.div
-              className="mt-6 flex flex-wrap gap-4 md:mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-            >
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
               <Button
                 href="https://freelancehub-tau.vercel.app/"
                 target="_blank"
@@ -116,26 +98,18 @@ export function ShowcaseHero() {
               <Button variant="secondary" href="/contact">
                 Contact me
               </Button>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right - screenshot */}
-          <motion.div
-            className="w-full"
-            initial={{ opacity: 0, x: 50, rotate: 2 }}
-            animate={{ opacity: 1, x: 0, rotate: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
+          <div className="w-full">
             <a
               href="https://freelancehub-tau.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="block"
             >
-              <motion.div
-                className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30"
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              >
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
                 {/* Browser bar */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 border-b border-gray-200">
                   <div className="flex gap-1.5">
@@ -154,9 +128,9 @@ export function ShowcaseHero() {
                   alt="FreelanceHub - Home page"
                   className="w-full h-auto block"
                 />
-              </motion.div>
+              </div>
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

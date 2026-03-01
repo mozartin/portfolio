@@ -3,6 +3,7 @@
 import { Button } from "../../Shared/Button";
 import React from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 function HeroGradientBg() {
   return (
@@ -60,68 +61,43 @@ function HeroGradientBg() {
 }
 
 export function Header78() {
+  const m = useIsMobile();
+
   return (
     <section 
       id="hero" 
       className="relative px-[5%] py-16 md:py-24 lg:py-28 text-white overflow-hidden"
     >
-      <HeroGradientBg />
+      {m ? (
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#1e1433] via-[#2a1a42] to-[#1a0f2e]" />
+      ) : (
+        <HeroGradientBg />
+      )}
 
       <div className="container flex flex-col items-center relative z-10">
         <div className="rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           {/* Floating logo icon */}
-          <motion.img
+          <img
             src="/images/logo-icon.png"
             alt=""
             className="w-14 h-14 mx-auto mb-6 opacity-50"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ 
-              opacity: 0.5, 
-              scale: 1,
-              y: [0, -5, 0],
-            }}
-            transition={{ 
-              opacity: { duration: 0.5 },
-              scale: { duration: 0.5 },
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-            }}
           />
 
           {/* Accent line */}
-          <motion.div
-            className="w-10 h-0.5 bg-lavender mx-auto mb-6 origin-center"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          />
+          <div className="w-10 h-0.5 bg-lavender mx-auto mb-6" />
 
-          <motion.h1
-            className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl"
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-          >
+          <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
             Full-stack Web Developer with an eye for UI/UX
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="md:text-md font-regular italic text-white/80"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          >
+          <p className="md:text-md font-regular italic text-white/80">
             I build responsive web apps with React and Laravel - clean code, fast performance, and thoughtful design.
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="mt-6 flex items-center justify-center gap-x-4 md:mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45, ease: "easeOut" }}
-          >
+          <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
             <Button href="/showcase">View Projects</Button>
             <Button variant="secondary" href="/contact">Let's Work Together</Button>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

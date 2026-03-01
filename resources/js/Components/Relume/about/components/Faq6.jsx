@@ -10,6 +10,7 @@ import { Button } from "../../Shared/Button";
 import React, { useRef } from "react";
 import { RxPlus } from "react-icons/rx";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 const faqItems = [
   {
@@ -59,6 +60,8 @@ const fadeUp = {
 export function Faq6() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const m = useIsMobile();
+  const shouldAnimate = m || isInView;
 
   return (
     <section ref={ref} id="faq" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
@@ -66,46 +69,46 @@ export function Faq6() {
         <div>
           <motion.div
             className="w-12 h-0.5 bg-purple mb-6 origin-left"
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={m ? false : { scaleX: 0 }}
+            animate={shouldAnimate ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={m ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
           />
           <motion.h2
             className="rb-5 mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            initial={m ? false : { opacity: 0, y: 30 }}
+            animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={m ? { duration: 0 } : { duration: 0.7, delay: 0.1, ease: "easeOut" }}
           >
             Questions
           </motion.h2>
           <motion.p
             className="md:text-md font-regular"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            initial={m ? false : { opacity: 0, y: 20 }}
+            animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={m ? { duration: 0 } : { duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
             Common questions about working with me, timelines, and what to expect
           </motion.p>
           <motion.div
             className="mt-6 md:mt-8"
-            initial={{ opacity: 0, y: 15 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            initial={m ? false : { opacity: 0, y: 15 }}
+            animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+            transition={m ? { duration: 0 } : { duration: 0.5, delay: 0.3, ease: "easeOut" }}
           >
             <Button variant="primary-light" href="/contact">Contact</Button>
           </motion.div>
         </div>
         <motion.div
           variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={m ? false : "hidden"}
+          animate={shouldAnimate ? "visible" : "hidden"}
         >
           <Accordion
             type="multiple"
             className="grid items-start justify-stretch gap-4 font-regular"
           >
             {faqItems.map((item, index) => (
-              <motion.div key={index} variants={fadeUp}>
+              <motion.div key={index} variants={m ? {} : fadeUp}>
                 <AccordionItem
                   value={`item-${index}`}
                   className="border border-border-primary px-5 md:px-6 rounded-xl bg-white hover:shadow-sm transition-shadow duration-200"

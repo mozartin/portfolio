@@ -3,6 +3,7 @@
 import { Button } from "../../Shared/Button";
 import React from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 function AboutGradientBg() {
   return (
@@ -57,53 +58,34 @@ function AboutGradientBg() {
 }
 
 export function Header44() {
+  const m = useIsMobile();
+
   return (
     <section id="about-header" className="relative px-[5%] py-16 md:py-24 lg:py-28 text-white overflow-hidden">
-      <AboutGradientBg />
+      {m ? (
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#5a3d8a] via-[#6b4fa0] to-[#4a3070]" />
+      ) : (
+        <AboutGradientBg />
+      )}
 
       <div className="container relative z-10">
         <div className="w-full max-w-lg">
-          <motion.div
-            className="w-12 h-0.5 bg-lavender mb-6 origin-left"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          />
-          <motion.p
-            className="mb-3 md:mb-4 font-regular italic text-lavender"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          <div className="w-12 h-0.5 bg-lavender mb-6" />
+          <p className="mb-3 md:mb-4 font-regular italic text-lavender">
             Developer
-          </motion.p>
-          <motion.h1
-            className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-          >
+          </p>
+          <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
             About me
-          </motion.h1>
-          <motion.p
-            className="md:text-md font-regular text-white/85"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-          >
+          </h1>
+          <p className="md:text-md font-regular text-white/85">
             I'm a full-stack web developer who builds modern, responsive websites 
             and web applications. I work independently and take full responsibility 
             for each project - from concept and design to code and deployment.
-          </motion.p>
-          <motion.div
-            className="mt-6 flex flex-wrap gap-4 md:mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-          >
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
             <Button href="/services">Services</Button>
             <Button variant="secondary" href="/contact">Contact</Button>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

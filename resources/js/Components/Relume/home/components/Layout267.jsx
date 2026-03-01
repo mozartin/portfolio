@@ -3,6 +3,7 @@
 import { Button } from "../../Shared/Button";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 const columns = [
   {
@@ -39,10 +40,8 @@ const colFade = {
 function AnimatedGradientBg() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-[#1a0a2e]">
-      {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#2d1b69] via-[#11204d] to-[#0a1628]" />
 
-      {/* Animated blobs */}
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full opacity-60"
         style={{
@@ -56,11 +55,7 @@ function AnimatedGradientBg() {
           y: [0, 60, -20, 0],
           scale: [1, 1.15, 0.95, 1],
         }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
@@ -76,11 +71,7 @@ function AnimatedGradientBg() {
           y: [0, -50, 30, 0],
           scale: [1, 0.9, 1.1, 1],
         }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
@@ -96,11 +87,7 @@ function AnimatedGradientBg() {
           y: [0, 40, -40, 0],
           scale: [1, 1.1, 0.9, 1],
         }}
-        transition={{
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
@@ -116,11 +103,7 @@ function AnimatedGradientBg() {
           y: [0, -40, 50, 0],
           scale: [1, 1.15, 0.85, 1],
         }}
-        transition={{
-          duration: 16,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
@@ -136,14 +119,9 @@ function AnimatedGradientBg() {
           y: [0, 50, -30, 0],
           scale: [0.9, 1.1, 1, 0.9],
         }}
-        transition={{
-          duration: 13,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Subtle overlay for depth */}
       <div className="absolute inset-0 bg-black/20" />
     </div>
   );
@@ -152,15 +130,16 @@ function AnimatedGradientBg() {
 export function Layout267({ canAnimate = true, onAnimationComplete }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const shouldAnimate = canAnimate && isInView;
+  const m = useIsMobile();
+  const shouldAnimate = m || (canAnimate && isInView);
 
   return (
     <section ref={ref} id="approach" className="relative px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden">
       <motion.div 
         className="container relative z-10"
-        initial={{ opacity: 0, y: 60 }}
+        initial={m ? false : { opacity: 0, y: 60 }}
         animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={m ? { duration: 0 } : { duration: 0.8, ease: "easeOut" }}
         onAnimationComplete={() => {
           if (shouldAnimate && onAnimationComplete) {
             onAnimationComplete();
@@ -174,11 +153,11 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
         <motion.div
           className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12"
           variants={staggerContainer}
-          initial="hidden"
+          initial={m ? false : "hidden"}
           animate={shouldAnimate ? "visible" : "hidden"}
         >
           {columns.map((col) => (
-            <motion.div key={col.title} className="w-full text-center" variants={colFade}>
+            <motion.div key={col.title} className="w-full text-center" variants={m ? {} : colFade}>
               <h3 className="mb-5 text-2xl font-bold font-heading text-white md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
                 {col.title}
               </h3>
@@ -190,9 +169,9 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
         </motion.div>
         <motion.div
           className="mt-12 flex flex-wrap justify-center gap-4 md:mt-18 lg:mt-20"
-          initial={{ opacity: 0, y: 20 }}
+          initial={m ? false : { opacity: 0, y: 20 }}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
+          transition={m ? { duration: 0 } : { duration: 0.5, delay: 0.7, ease: "easeOut" }}
         >
           <Button variant="primary" href="/showcase">
             View Projects
@@ -203,7 +182,11 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
         </motion.div>
       </motion.div>
 
-      <AnimatedGradientBg />
+      {m ? (
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#2d1b69] via-[#11204d] to-[#0a1628]" />
+      ) : (
+        <AnimatedGradientBg />
+      )}
     </section>
   );
 }

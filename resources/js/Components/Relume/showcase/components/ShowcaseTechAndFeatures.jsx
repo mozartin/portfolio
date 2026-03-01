@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 import {
   BiUser,
   BiSearch,
@@ -83,7 +84,8 @@ export function ShowcaseTechAndFeatures({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const shouldAnimate = canAnimate && isInView;
+  const m = useIsMobile();
+  const shouldAnimate = m || (canAnimate && isInView);
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -111,11 +113,11 @@ export function ShowcaseTechAndFeatures({
       <div className="container">
         {/* ── Tech Stack ── */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={m ? false : { opacity: 0, y: 40 }}
           animate={
             shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
           }
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
           onAnimationComplete={() => {
             if (shouldAnimate && onAnimationComplete) {
               onAnimationComplete();
@@ -136,13 +138,13 @@ export function ShowcaseTechAndFeatures({
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-20 md:mb-28"
           variants={staggerContainer}
-          initial="hidden"
+          initial={m ? false : "hidden"}
           animate={shouldAnimate ? "visible" : "hidden"}
         >
           {techStack.map((group) => (
             <motion.div
               key={group.category}
-              variants={fadeUp}
+              variants={m ? {} : fadeUp}
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
               <h3 className="text-lg font-heading font-bold mb-5 text-purple">
@@ -169,11 +171,11 @@ export function ShowcaseTechAndFeatures({
 
         {/* ── Key Features ── */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={m ? false : { opacity: 0, y: 40 }}
           animate={
             shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
           }
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          transition={m ? { duration: 0 } : { duration: 0.7, delay: 0.2, ease: "easeOut" }}
         >
           <div className="mx-auto mb-10 max-w-lg text-center md:mb-14">
             <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-60" />
@@ -189,13 +191,13 @@ export function ShowcaseTechAndFeatures({
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           variants={staggerContainer}
-          initial="hidden"
+          initial={m ? false : "hidden"}
           animate={shouldAnimate ? "visible" : "hidden"}
         >
           {features.map((feature) => (
             <motion.div
               key={feature.title}
-              variants={fadeUp}
+              variants={m ? {} : fadeUp}
               className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="w-10 h-10 rounded-lg bg-purple/10 flex items-center justify-center text-purple mb-4">
@@ -214,4 +216,3 @@ export function ShowcaseTechAndFeatures({
     </section>
   );
 }
-

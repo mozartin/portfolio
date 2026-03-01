@@ -4,6 +4,7 @@ import { Button } from "../../Shared/Button";
 import React, { useRef } from "react";
 import { BiCheck } from "react-icons/bi";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 const plans = [
   {
@@ -47,6 +48,8 @@ const plans = [
 export function Pricing20() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const m = useIsMobile();
+  const shouldAnimate = m || isInView;
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -70,9 +73,9 @@ export function Pricing20() {
       <div className="container">
         <motion.div
           className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          initial={m ? false : { opacity: 0, y: 40 }}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
         >
           <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-60" />
           <p className="mb-3 md:mb-4 font-regular italic text-purple">Services</p>
@@ -87,13 +90,13 @@ export function Pricing20() {
         <motion.div
           className="grid grid-cols-1 gap-8 lg:grid-cols-3"
           variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={m ? false : "hidden"}
+          animate={shouldAnimate ? "visible" : "hidden"}
         >
           {plans.map((plan) => (
             <motion.div
               key={plan.title}
-              variants={cardFade}
+              variants={m ? {} : cardFade}
               className="h-full flex flex-col px-6 py-8 md:p-8 rounded-2xl bg-white border border-plum/5 shadow-sm"
             >
               <h2 className="mb-2 text-xl font-bold font-heading md:text-2xl">

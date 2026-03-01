@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import { BiEnvelope, BiUser, BiMessageDetail, BiCheck } from "react-icons/bi";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 function FloatingInput({ id, label, type = "text", icon: Icon, value, onChange, error }) {
   const [focused, setFocused] = useState(false);
@@ -102,6 +103,7 @@ function FloatingTextarea({ id, label, value, onChange, error }) {
 
 export function Contact7() {
   const [agreed, setAgreed] = useState(false);
+  const m = useIsMobile();
 
   const { data, setData, post, processing, errors, reset, recentlySuccessful } = useForm({
     name: "",
@@ -127,9 +129,9 @@ export function Contact7() {
         {/* Title row - left aligned */}
         <motion.div
           className="mb-12 md:mb-16 max-w-xl"
-          initial={{ opacity: 0, y: 30 }}
+          initial={m ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={m ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
         >
           <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mb-4 opacity-60" />
           <p className="mb-3 md:mb-4 font-regular italic text-purple">Connect</p>
@@ -154,9 +156,9 @@ export function Contact7() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left - form */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={m ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            transition={m ? { duration: 0 } : { duration: 0.6, delay: 0.15, ease: "easeOut" }}
           >
             <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm">
               {recentlySuccessful && (
@@ -233,9 +235,9 @@ export function Contact7() {
           {/* Right - image (height matches form) */}
           <motion.div
             className="hidden lg:block relative rounded-2xl overflow-hidden"
-            initial={{ opacity: 0, x: 30 }}
+            initial={m ? false : { opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+            transition={m ? { duration: 0 } : { duration: 0.7, delay: 0.25, ease: "easeOut" }}
           >
             <img
               src="/images/get-in-contact.jpg"
