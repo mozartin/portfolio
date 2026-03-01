@@ -1,20 +1,158 @@
 "use client";
 
 import { Button } from "../../Shared/Button";
-import React from "react";
-import { RxChevronRight } from "react-icons/rx";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
+const columns = [
+  {
+    title: "End-to-end development",
+    text: "Concept → design → code → deploy.",
+  },
+  {
+    title: "Modern stack",
+    text: "React, Laravel, Tailwind, Inertia, Docker - and I'm always learning new tools to improve performance, UX, and developer experience.",
+  },
+  {
+    title: "Clean architecture",
+    text: "Readable code. Thoughtful UX. Maintainable systems.",
+  },
+];
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.18, delayChildren: 0.3 },
+  },
+};
+
+const colFade = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+function AnimatedGradientBg() {
+  return (
+    <div className="absolute inset-0 z-0 overflow-hidden bg-[#1a0a2e]">
+      {/* Base gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2d1b69] via-[#11204d] to-[#0a1628]" />
+
+      {/* Animated blobs */}
+      <motion.div
+        className="absolute w-[600px] h-[600px] rounded-full opacity-60"
+        style={{
+          background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)",
+          filter: "blur(80px)",
+          top: "-10%",
+          left: "-10%",
+        }}
+        animate={{
+          x: [0, 80, 30, 0],
+          y: [0, 60, -20, 0],
+          scale: [1, 1.15, 0.95, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute w-[500px] h-[500px] rounded-full opacity-50"
+        style={{
+          background: "radial-gradient(circle, #06b6d4 0%, transparent 70%)",
+          filter: "blur(80px)",
+          bottom: "-15%",
+          left: "20%",
+        }}
+        animate={{
+          x: [0, -60, 40, 0],
+          y: [0, -50, 30, 0],
+          scale: [1, 0.9, 1.1, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute w-[550px] h-[550px] rounded-full opacity-50"
+        style={{
+          background: "radial-gradient(circle, #a855f7 0%, transparent 70%)",
+          filter: "blur(90px)",
+          top: "10%",
+          right: "-10%",
+        }}
+        animate={{
+          x: [0, -70, 20, 0],
+          y: [0, 40, -40, 0],
+          scale: [1, 1.1, 0.9, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute w-[400px] h-[400px] rounded-full opacity-40"
+        style={{
+          background: "radial-gradient(circle, #ec4899 0%, transparent 70%)",
+          filter: "blur(80px)",
+          bottom: "5%",
+          right: "10%",
+        }}
+        animate={{
+          x: [0, 50, -30, 0],
+          y: [0, -40, 50, 0],
+          scale: [1, 1.15, 0.85, 1],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute w-[450px] h-[450px] rounded-full opacity-45"
+        style={{
+          background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
+          filter: "blur(90px)",
+          top: "40%",
+          left: "35%",
+        }}
+        animate={{
+          x: [0, -40, 60, 0],
+          y: [0, 50, -30, 0],
+          scale: [0.9, 1.1, 1, 0.9],
+        }}
+        transition={{
+          duration: 13,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      {/* Subtle overlay for depth */}
+      <div className="absolute inset-0 bg-black/20" />
+    </div>
+  );
+}
 
 export function Layout267({ canAnimate = true, onAnimationComplete }) {
-  const ref = React.useRef(null);
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const shouldAnimate = canAnimate && isInView;
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
 
   return (
     <section ref={ref} id="approach" className="relative px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden">
@@ -29,64 +167,43 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
           }
         }}
       >
-        <div className="mx-auto mb-12 max-w-lg text-center text-text-alternative md:mb-18 lg:mb-20">
-          <p className="mb-3 md:mb-4 font-regular italic">What I do</p>
-          <h2 className="mb-5 text-5xl font-heading md:mb-6 md:text-7xl lg:text-8xl">
-            My approach to building
-          </h2>
+        <div className="mx-auto mb-12 max-w-lg text-center text-white md:mb-18 lg:mb-20">
+          <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-40" />
+          <p className="mb-3 md:mb-4 font-regular italic text-white/80">What I bring</p>
         </div>
-        <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
-          <div className="w-full text-center">
-            
-            <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-              End-to-end delivery
-            </h3>
-            <p className="text-text-alternative font-regular">
-              Design → frontend → backend → deployment. I own the full process 
-              and deliver production-ready results.
-            </p>
-          </div>
-          <div className="w-full text-center">
-            <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-              Modern tech stack
-            </h3>
-            <p className="text-text-alternative font-regular">
-              React, Laravel, Tailwind CSS, Inertia.js, Docker - I use modern, 
-              reliable tools to build scalable web solutions.
-            </p>
-          </div>
-          <div className="w-full text-center">
-            <h3 className="mb-5 text-2xl font-bold font-heading text-text-alternative md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-              Clean by design
-            </h3>
-            <p className="text-text-alternative font-regular">
-              Readable code, intuitive layouts, no unnecessary complexity. 
-              Every project is built to be understood, maintained, and extended.
-            </p>
-          </div>
-        </div>
-        <div className="mt-12 flex flex-wrap justify-center gap-4 md:mt-18 lg:mt-20">
-          <Button variant="primary" href="/services">
-            View services
+        <motion.div
+          className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={shouldAnimate ? "visible" : "hidden"}
+        >
+          {columns.map((col) => (
+            <motion.div key={col.title} className="w-full text-center" variants={colFade}>
+              <h3 className="mb-5 text-2xl font-bold font-heading text-white md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
+                {col.title}
+              </h3>
+              <p className="text-white/80 font-regular">
+                {col.text}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+        <motion.div
+          className="mt-12 flex flex-wrap justify-center gap-4 md:mt-18 lg:mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
+        >
+          <Button variant="primary" href="/showcase">
+            View Projects
           </Button>
           <Button variant="secondary" href="/contact">
-            Start a project
+            Let's Work Together
           </Button>
-        </div>
+        </motion.div>
       </motion.div>
-      <div className="absolute inset-0 z-0">
-        <motion.img
-          src="/images/code-bg.jpg"
-          className="absolute inset-0 w-full h-[150%] object-cover -top-[25%]"
-          alt="Background"
-          style={{ 
-            y,
-            willChange: "transform",
-            transform: "translateZ(0)",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+
+      <AnimatedGradientBg />
     </section>
   );
 }

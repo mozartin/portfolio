@@ -113,6 +113,7 @@ export function Navbar1() {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/about">About</NavLink>
           <NavLink href="/services">Services</NavLink>
+          <NavLink href="/showcase">Showcase</NavLink>
     
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}

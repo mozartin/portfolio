@@ -5,9 +5,10 @@ export function NavLink({ href, children, className = "", variant = "default" })
   const { url } = usePage();
   const isActive = url === href || url.startsWith(href + '/');
   const isLight = variant === "light";
-  const hoverClass = isLight ? "hover:text-white" : "hover:text-plum";
-  const underlineClass = isLight ? "after:bg-white" : "after:bg-plum";
-  const activeClass = isLight ? "text-white after:w-full" : "text-plum after:w-full";
+  const hoverClass = isLight ? "hover:text-white" : "hover:text-white";
+  const underlineClass = isLight ? "after:bg-white" : "after:bg-white";
+  const activeClass = isLight ? "text-white after:w-full" : "text-white font-semibold after:w-full";
+  const inactiveTextClass = isLight ? "text-white/70" : "text-white/60";
   
   return (
     <Link
@@ -18,7 +19,7 @@ export function NavLink({ href, children, className = "", variant = "default" })
         ${hoverClass}
         after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
         after:h-0.5 ${underlineClass} after:transition-all after:duration-300
-        ${isActive ? activeClass : 'after:w-0 hover:after:w-full'}
+        ${isActive ? activeClass : `${inactiveTextClass} after:w-0 hover:after:w-full`}
         ${className}
       `}
     >

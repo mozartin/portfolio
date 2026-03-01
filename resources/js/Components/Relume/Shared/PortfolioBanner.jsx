@@ -7,7 +7,7 @@ export function PortfolioBanner() {
   if (!visible) return null;
 
   return (
-    <div className="relative z-[60] bg-plum text-white">
+    <div className="relative z-[60] bg-plum-bg text-white">
       <div className="max-w-3xl mx-auto px-10 py-3 md:py-4">
         <button
           onClick={() => setVisible(false)}

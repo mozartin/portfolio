@@ -20,4 +20,8 @@ Route::get('/contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
 
+Route::get('/showcase', function () {
+    return Inertia::render('Showcase');
+})->name('showcase');
+
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

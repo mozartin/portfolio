@@ -22,6 +22,18 @@ export function Button({
   const classes = `${baseStyles} ${variants[variant]} ${className}`;
 
   if (href) {
+    // External links or target="_blank" — use a regular <a> tag
+    const isExternal = href.startsWith("http") || props.target === "_blank";
+
+    if (isExternal) {
+      return (
+        <a href={href} className={classes} {...props}>
+          {children}
+          {iconRight && <span className="text-lg">{iconRight}</span>}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={classes} {...props}>
         {children}

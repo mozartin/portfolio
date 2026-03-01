@@ -10,7 +10,7 @@ export function Cta25({ canAnimate = true, onAnimationComplete }) {
   const shouldAnimate = canAnimate && isInView;
 
   return (
-    <section ref={ref} id="cta" className="px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden bg-mist text-plum">
+    <section ref={ref} id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden bg-mist text-plum">
       <motion.div 
         className="container max-w-lg text-center"
         initial={{ opacity: 0, y: 60 }}
@@ -22,18 +22,31 @@ export function Cta25({ canAnimate = true, onAnimationComplete }) {
           }
         }}
       >
+        <motion.img
+          src="/images/logo-icon.png"
+          alt=""
+          className="w-16 h-16 mx-auto mb-5 opacity-60"
+          animate={{ 
+            y: [0, -6, 0],
+            rotate: [0, 3, -3, 0],
+          }}
+          transition={{ 
+            duration: 5, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        />
         <h2 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
-          Have a project in mind?
+          Looking for a developer?
         </h2>
-        <p className="md:text-md font-regular">
-          Whether you need a website, a web application, or a reliable development partner - 
-          let's talk and bring your idea to life.
+        <p className="md:text-md font-regular text-plum/70 leading-relaxed">
+          React · Laravel · Responsive design<br />
+          Production experience since 2023
         </p>
         <div className="mt-6 flex items-center justify-center gap-4 md:mt-8">
-          <Button variant="primary-light" href="/contact">Get in touch</Button>
+          <Button variant="primary-light" href="/contact">Work with me</Button>
         </div>
       </motion.div>
     </section>
   );
 }
-

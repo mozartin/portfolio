@@ -7,116 +7,125 @@ import {
   AccordionTrigger,
 } from "@relume_io/relume-ui";
 import { Button } from "../../Shared/Button";
-import React from "react";
+import React, { useRef } from "react";
 import { RxPlus } from "react-icons/rx";
+import { motion, useInView } from "framer-motion";
+
+const faqItems = [
+  {
+    question: "How long does a project take?",
+    answer:
+      "Small projects usually take 2–4 weeks, larger web apps 4–10 weeks, depending on scope. I always discuss timeline early so expectations are clear.",
+  },
+  {
+    question: "What kind of projects do you take on?",
+    answer:
+      "I work on responsive websites, small web applications, and portfolio or business sites. Most of my recent work uses React, Laravel, and modern CSS.",
+  },
+  {
+    question: "What's included in a project?",
+    answer:
+      "Planning, design support, development, testing, and deployment. I also help with hosting setup and basic documentation after launch.",
+  },
+  {
+    question: "Can you redesign an existing site?",
+    answer:
+      "Yes. I can improve layout, performance, or migrate a site to a more modern stack. We start with a small audit to understand what should change."
+  },
+  {
+    question: "Do you offer ongoing support?",
+    answer:
+      "Yes - small updates, bug fixes, and improvements after launch. We can agree on simple hourly support when needed.",
+  },
+];
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+};
 
 export function Faq6() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="faq" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
+    <section ref={ref} id="faq" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
       <div className="container grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-12 lg:grid-cols-[.75fr,1fr] lg:gap-x-20">
-        <h2 className="rb-5 mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
-          Questions
-        </h2>
-        <p className="md:text-md font-regular">
-          Common questions about working with me, timelines, and what to expect
-        </p>
-        <div className="mt-6 md:mt-8">
-          <Button variant="primary-light" href="/contact">Contact</Button>
+        <div>
+          <motion.div
+            className="w-12 h-0.5 bg-purple mb-6 origin-left"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
+          <motion.h2
+            className="rb-5 mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          >
+            Questions
+          </motion.h2>
+          <motion.p
+            className="md:text-md font-regular"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
+            Common questions about working with me, timelines, and what to expect
+          </motion.p>
+          <motion.div
+            className="mt-6 md:mt-8"
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+            transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+          >
+            <Button variant="primary-light" href="/contact">Contact</Button>
+          </motion.div>
         </div>
-        <Accordion
-          type="multiple"
-          className="grid items-start justify-stretch gap-4 font-regular"
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <AccordionItem
-            value="item-0"
-            className="border border-border-primary px-5 md:px-6"
+          <Accordion
+            type="multiple"
+            className="grid items-start justify-stretch gap-4 font-regular"
           >
-            <AccordionTrigger
-              icon={
-                <RxPlus className="size-7 shrink-0 text-text-primary transition-transform duration-300 md:size-8" />
-              }
-              className="md:py-5 md:text-md font-regular [&[data-state=open]>svg]:rotate-45"
-            >
-              How long does a project take?
-            </AccordionTrigger>
-            <AccordionContent className="md:pb-6">
-              Most projects take between four to twelve weeks, depending on
-              scope and complexity. The timeline gets discussed early so there
-              are no surprises.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            value="item-1"
-            className="border border-border-primary px-5 md:px-6"
-          >
-            <AccordionTrigger
-              icon={
-                <RxPlus className="size-7 shrink-0 text-text-primary transition-transform duration-300 md:size-8" />
-              }
-              className="md:py-5 md:text-md [&[data-state=open]>svg]:rotate-45"
-            >
-              What types of projects do you take on?
-            </AccordionTrigger>
-            <AccordionContent className="md:pb-6">
-              I work on websites, web applications, landing pages, and custom 
-              digital solutions. From small business sites to more complex 
-              full-stack projects - every one gets the same attention and care.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            value="item-2"
-            className="border border-border-primary px-5 md:px-6"
-          >
-            <AccordionTrigger
-              icon={
-                <RxPlus className="size-7 shrink-0 text-text-primary transition-transform duration-300 md:size-8" />
-              }
-              className="md:py-5 md:text-md [&[data-state=open]>svg]:rotate-45"
-            >
-              What's included in a project?
-            </AccordionTrigger>
-            <AccordionContent className="md:pb-6">
-              Design, development, testing, and deployment - handled end-to-end.
-              You get a polished website with responsive layouts, fast 
-              performance, and clean, maintainable code.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            value="item-3"
-            className="border border-border-primary px-5 md:px-6"
-          >
-            <AccordionTrigger
-              icon={
-                <RxPlus className="size-7 shrink-0 text-text-primary transition-transform duration-300 md:size-8" />
-              }
-              className="md:py-5 md:text-md [&[data-state=open]>svg]:rotate-45"
-            >
-              Can you redesign an existing site?
-            </AccordionTrigger>
-            <AccordionContent className="md:pb-6">
-              Absolutely. Redesigns happen when a site needs a fresh direction
-              or better performance. The process starts with understanding
-              what's working and what isn't.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem
-            value="item-4"
-            className="border border-border-primary px-5 md:px-6"
-          >
-            <AccordionTrigger
-              icon={
-                <RxPlus className="size-7 shrink-0 text-text-primary transition-transform duration-300 md:size-8" />
-              }
-              className="md:py-5 md:text-md [&[data-state=open]>svg]:rotate-45"
-            >
-              Do you offer ongoing support?
-            </AccordionTrigger>
-            <AccordionContent className="md:pb-6">
-              Yes. Support packages are available for updates, maintenance, and
-              changes after launch. This keeps sites running smoothly over time.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+            {faqItems.map((item, index) => (
+              <motion.div key={index} variants={fadeUp}>
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="border border-border-primary px-5 md:px-6 rounded-xl bg-white hover:shadow-sm transition-shadow duration-200"
+                >
+                  <AccordionTrigger
+                    icon={
+                      <RxPlus className="size-7 shrink-0 text-text-primary transition-transform duration-300 md:size-8" />
+                    }
+                    className="md:py-5 md:text-md font-regular [&[data-state=open]>svg]:rotate-45"
+                  >
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="md:pb-6">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
     </section>
   );

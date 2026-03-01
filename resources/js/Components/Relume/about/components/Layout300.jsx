@@ -1,92 +1,108 @@
 "use client";
 
 import { Button } from "../../Shared/Button";
-import React from "react";
+import React, { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
+import { motion, useInView } from "framer-motion";
+
+const steps = [
+  {
+    title: "Understand first",
+    text: "Every project starts with understanding the goal. I focus on structure, logic, and purpose before writing code.",
+  },
+  {
+    title: "Design with purpose",
+    text: "Interfaces based on real user behavior - responsive layouts, accessibility, and clean UX.",
+  },
+  {
+    title: "Build clean architecture",
+    text: "React + Laravel apps with readable code, predictable structure, and maintainable systems.",
+  },
+  {
+    title: "Ship to production",
+    text: "Test, deploy, and support projects after launch.",
+  },
+];
 
 export function Layout300() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
+
+  const cardFade = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="skills" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
+    <section ref={ref} id="skills" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
       <div className="container">
         <div className="flex flex-col items-start">
-          <div className="mx-auto mb-12 w-full max-w-lg items-start justify-between gap-5 md:mb-18 lg:mb-20">
-            <h2 className="mb-5 text-center text-5xl font-bold  md:mb-6 md:text-7xl lg:text-8xl">
+          <motion.div
+            className="mx-auto mb-12 w-full max-w-lg items-start justify-between gap-5 md:mb-18 lg:mb-20"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-60" />
+            <h2 className="mb-5 text-center text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               How I work
             </h2>
             <p className="text-center md:text-md font-regular">
-              A clear, considered process - from idea to production
+              A clear process - from idea to production-ready app.
             </p>
-          </div>
-          <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4">
-            <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
-                <img
-                  src="/images/flowers/flower-1.png"
-                  alt="Decorative flower"
-                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
-                />
-              </div>
-              <h3 className="mb-3 text-center text-xl font-bold font-heading md:mb-4 md:text-2xl">
-                Clarity first
-              </h3>
-              <p className="text-center font-regular">
-                Every project starts with understanding the goal. I focus on 
-                structure, logic, and purpose before writing a single line of code.
-              </p>
-            </div>
-            <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
-                <img
-                  src="/images/flowers/flower-2.png"
-                  alt="Decorative flower"
-                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
-                />
-              </div>
-              <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl font-heading">
-                Design that serves the user
-              </h3>
-              <p className="text-center">
-                I design interfaces based on how real people use them - intuitive 
-                navigation, clear hierarchy, and responsive layouts across all devices.
-              </p>
-            </div>
-            <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
-                <img
-                  src="/images/flowers/flower-3.png"
-                  alt="Decorative flower"
-                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
-                />
-              </div>
-              <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl font-heading">
-                Built to be maintained
-              </h3>
-              <p className="text-center font-regular">
-                Clean code, predictable architecture, and sensible patterns. 
-                Everything I build is meant to be understood, extended, and supported long-term.
-              </p>
-            </div>
-            <div className="w-full">
-              <div className="mb-5 md:mb-6 flex items-center justify-center h-12 md:h-16">
-                <img
-                  src="/images/flowers/flower-4.png"
-                  alt="Decorative flower"
-                  className="max-h-full max-w-[3rem] md:max-w-[4rem] object-contain"
-                />
-              </div>
-              <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl font-heading">
-                From concept to live site
-              </h3>
-              <p className="text-center font-regular">
-                I handle both frontend and backend, and take projects all the way 
-                to production. What I build is tested, deployed, and ready to use.
-              </p>
-            </div>
-          </div>
-          <div className="mt-12 flex w-full flex-wrap items-center justify-center gap-4 md:mt-18 lg:mt-20">
-            <Button variant="primary-light" href="/services">Services</Button>
-            <Button variant="secondary-light" iconRight={<RxChevronRight />} href="/contact">Contact</Button>
-          </div>
+          </motion.div>
+          <motion.div
+            className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            {steps.map((step, index) => (
+              <motion.div key={step.title} className="w-full" variants={cardFade}>
+                <motion.div
+                  className="mx-auto mb-4 w-12 h-12 rounded-full bg-purple/10 flex items-center justify-center"
+                  initial={{ scale: 0 }}
+                  animate={isInView ? { scale: 1 } : { scale: 0 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: 0.3 + index * 0.15, 
+                    ease: "easeOut",
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                >
+                  <span className="text-purple font-heading font-bold text-lg">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </motion.div>
+                <h3 className="mb-3 text-center text-xl font-bold font-heading md:mb-4 md:text-2xl">
+                  {step.title}
+                </h3>
+                <p className="text-center font-regular">{step.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+          <motion.div
+            className="mt-12 flex w-full flex-wrap items-center justify-center gap-4 md:mt-18 lg:mt-20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
+          >
+            <Button variant="primary-light" href="/showcase">View Projects</Button>
+            <Button variant="secondary-light" iconRight={<RxChevronRight />} href="/contact">Let’s Work Together</Button>
+          </motion.div>
         </div>
       </div>
     </section>
