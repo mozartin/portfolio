@@ -24,11 +24,12 @@ RUN composer install \
     --no-dev \
     --no-scripts \
     --no-autoloader \
-    --prefer-dist
+    --prefer-dist \
+    --ignore-platform-req=php
 
 COPY . .
 
-RUN composer dump-autoload --optimize --no-dev
+RUN composer dump-autoload --optimize --no-dev --ignore-platform-req=php
 
 FROM php:8.2-fpm-bookworm
 
