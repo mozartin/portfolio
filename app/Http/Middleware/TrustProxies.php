@@ -9,7 +9,7 @@ class TrustProxies extends Middleware
 {
     /**
      * The trusted proxies for this application.
-     * Trust all proxies for Railway deployment
+     * Trust all proxies for Coolify / Traefik.
      *
      * @var array<int, string>|string|null
      */

@@ -8,26 +8,12 @@ export default defineConfig({
         laravel({
             input: 'resources/js/app.jsx',
             refresh: true,
-            detectTls: false,
-            buildDirectory: 'build',
-            publicDirectory: 'public',
         }),
         react(),
     ],
-    server: {
-        host: '0.0.0.0',
-        port: 5173,
-        strictPort: true,
-        origin: 'http://localhost:5173',
-        cors: true,
-        watch: {
-            usePolling: true,
-        },
-    },
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './resources/js'),
         },
     },
 });
-
