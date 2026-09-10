@@ -29,7 +29,10 @@ RUN composer install \
 
 COPY . .
 
-RUN composer dump-autoload --optimize --no-dev --ignore-platform-req=php
+# Coolify injects DB_CONNECTION=sqlite at build time; package:discover needs the file.
+RUN mkdir -p database \
+    && touch database/database.sqlite \
+    && composer dump-autoload --optimize --no-dev --ignore-platform-req=php
 
 FROM php:8.2-fpm-bookworm
 
