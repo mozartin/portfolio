@@ -42,7 +42,7 @@ export function Footer7() {
               <NavLink href="/services" variant="light">Services</NavLink>
             </li>
             <li>
-              <NavLink href="/showcase" variant="light">Showcase</NavLink>
+              <NavLink href="/showcase" variant="light">Showcases</NavLink>
             </li>
           </ul>
         </motion.div>

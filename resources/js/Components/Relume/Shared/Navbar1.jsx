@@ -112,7 +112,7 @@ export function Navbar1() {
               Services
             </NavLink>
             <NavLink href="/showcase" onClick={nav.closeMobileMenu}>
-              Showcase
+              Showcases
             </NavLink>
 
             <div className="mt-4 lg:ml-3 lg:mt-0">
