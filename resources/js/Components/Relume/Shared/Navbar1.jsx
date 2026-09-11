@@ -37,19 +37,12 @@ export function Navbar1() {
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-[5%] lg:min-h-18">
         <div className="flex min-h-16 w-full items-center justify-between md:min-h-18 lg:w-auto">
-          <Link
-            href="/"
-            className="group flex items-center gap-2.5 transition-opacity hover:opacity-80"
-            onClick={nav.closeMobileMenu}
-          >
+          <Link href="/" onClick={nav.closeMobileMenu}>
             <img
-              src="/images/logo-icon.png"
-              alt=""
-              className="h-9 w-9 transition-transform duration-300 group-hover:scale-105"
+              src="/images/logo.png"
+              alt="Olena Beliavska"
+              className="h-10 w-auto brightness-0"
             />
-            <span className="font-regular text-base text-plum md:text-lg">
-              Olena Beliavska
-            </span>
           </Link>
 
           <button

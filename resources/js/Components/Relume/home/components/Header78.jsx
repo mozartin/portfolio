@@ -81,6 +81,7 @@ export function Header78() {
             alt=""
             className="mx-auto mb-6 h-14 w-14 opacity-70"
           />
+          <div className="mx-auto mb-6 h-0.5 w-12 bg-lavender" />
 
           <h1 className="mb-5 text-5xl font-bold font-heading leading-tight md:mb-6 md:text-7xl lg:text-8xl">
             Happy to help you get online: design, build, and launch
