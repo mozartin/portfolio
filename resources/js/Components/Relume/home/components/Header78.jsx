@@ -76,22 +76,18 @@ export function Header78() {
 
       <div className="container flex flex-col items-center relative z-10">
         <div className="rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-          {/* Floating logo icon */}
           <img
             src="/images/logo-icon.png"
             alt=""
-            className="w-14 h-14 mx-auto mb-6 opacity-50"
+            className="mx-auto mb-6 h-14 w-14 opacity-70"
           />
 
-          {/* Accent line */}
-          <div className="w-10 h-0.5 bg-lavender mx-auto mb-6" />
-
-          <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
-            Full-stack Web Developer with an eye for UI/UX
+          <h1 className="mb-5 text-5xl font-bold font-heading leading-tight md:mb-6 md:text-7xl lg:text-8xl">
+            Happy to help you get online: design, build, and launch
           </h1>
 
-          <p className="md:text-md font-regular italic text-white/80">
-            I build responsive web apps with React and Laravel - clean code, fast performance, and thoughtful design.
+          <p className="md:text-md font-regular text-white/80">
+            From a simple idea to a website you're proud to share.
           </p>
 
           <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">

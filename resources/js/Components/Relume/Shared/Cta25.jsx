@@ -33,8 +33,8 @@ export function Cta25({ canAnimate = true, onAnimationComplete }) {
           Looking for a developer?
         </h2>
         <p className="md:text-md font-regular text-plum/70 leading-relaxed">
-          React · Laravel · Responsive design<br />
-          Production experience since 2023
+          Clear websites, thoughtful design, and support from idea to launch.<br />
+          Building websites since 2023
         </p>
         <div className="mt-6 flex items-center justify-center gap-4 md:mt-8">
           <Button variant="primary-light" href="/contact">Work with me</Button>

@@ -2,6 +2,7 @@
 
 import { Button } from "../../Shared/Button";
 import React from "react";
+import { Link } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
 
@@ -72,6 +73,13 @@ export function ShowcaseHero() {
       )}
 
       <div className="container relative z-10">
+        <Link
+          href="/showcase"
+          className="mb-8 inline-flex font-regular text-sm text-white/60 transition-colors hover:text-white"
+        >
+          ← All projects
+        </Link>
+
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left - text */}
           <div className="w-full">
@@ -83,7 +91,7 @@ export function ShowcaseHero() {
               FreelanceHub
             </h1>
             <p className="md:text-md font-regular text-white/85 max-w-md">
-              A full-stack freelance marketplace demo - browse jobs, send
+              A full-stack freelance marketplace: browse jobs, send
               proposals, manage work. Built with React, Tailwind&nbsp;CSS,
               Laravel&nbsp;API and deployed to the cloud.
             </p>
@@ -93,7 +101,7 @@ export function ShowcaseHero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Live demo
+                Live site
               </Button>
               <Button variant="secondary" href="/contact">
                 Contact me

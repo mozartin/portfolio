@@ -3,66 +3,64 @@
 import { useMediaQuery } from "@relume_io/relume-ui";
 import { Button } from "./Button";
 import { NavLink } from "./NavLink";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { RxChevronDown } from "react-icons/rx";
 import { Link } from "@inertiajs/react";
 
 const useNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-  const openOnMobileDropdownMenu = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
-  const openOnDesktopDropdownMenu = () => {
-    !isMobile && setIsDropdownOpen(true);
-  };
-  const closeOnDesktopDropdownMenu = () => {
-    !isMobile && setIsDropdownOpen(false);
-  };
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const animateMobileMenu = isMobileMenuOpen ? "open" : "close";
   const animateMobileMenuButtonSpan = isMobileMenuOpen
     ? ["open", "rotatePhase"]
     : "closed";
-  const animateDropdownMenu = isDropdownOpen ? "open" : "close";
-  const animateDropdownMenuIcon = isDropdownOpen ? "rotated" : "initial";
+
   return {
+    isMobileMenuOpen,
+    isMobile,
     toggleMobileMenu,
-    openOnDesktopDropdownMenu,
-    closeOnDesktopDropdownMenu,
-    openOnMobileDropdownMenu,
+    closeMobileMenu,
     animateMobileMenu,
     animateMobileMenuButtonSpan,
-    animateDropdownMenu,
-    animateDropdownMenuIcon,
   };
 };
 
 export function Navbar1() {
-  const useActive = useNavbar();
+  const nav = useNavbar();
+
   return (
     <section
       id="navbar"
-      className="flex w-full items-center bg-purple lg:min-h-18 lg:px-[5%]"
+      className="relative sticky top-0 z-50 w-full border-b border-plum/5 bg-mist/90 backdrop-blur-xl"
     >
-      <div className="size-full lg:flex lg:items-center lg:justify-between">
-        <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <Link href="/">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-[5%] lg:min-h-18">
+        <div className="flex min-h-16 w-full items-center justify-between md:min-h-18 lg:w-auto">
+          <Link
+            href="/"
+            className="group flex items-center gap-2.5 transition-opacity hover:opacity-80"
+            onClick={nav.closeMobileMenu}
+          >
             <img
-              src="/images/logo.png"
-              alt="Logo image"
-              className="h-10 w-auto"
+              src="/images/logo-icon.png"
+              alt=""
+              className="h-9 w-9 transition-transform duration-300 group-hover:scale-105"
             />
+            <span className="font-regular text-base text-plum md:text-lg">
+              Olena Beliavska
+            </span>
           </Link>
+
           <button
-            className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
-            onClick={useActive.toggleMobileMenu}
+            type="button"
+            aria-label={nav.isMobileMenuOpen ? "Close menu" : "Open menu"}
+            className="flex size-11 flex-col items-center justify-center rounded-full transition-colors hover:bg-lavender/20 lg:hidden"
+            onClick={nav.toggleMobileMenu}
           >
             <motion.span
-              className="my-[3px] h-0.5 w-6 bg-black"
-              animate={useActive.animateMobileMenuButtonSpan}
+              className="my-[3px] h-0.5 w-5 rounded-full bg-plum"
+              animate={nav.animateMobileMenuButtonSpan}
               variants={{
                 open: { translateY: 8, transition: { delay: 0.1 } },
                 rotatePhase: { rotate: -45, transition: { delay: 0.2 } },
@@ -74,19 +72,19 @@ export function Navbar1() {
               }}
             />
             <motion.span
-              className="my-[3px] h-0.5 w-6 bg-black"
-              animate={useActive.animateMobileMenu}
+              className="my-[3px] h-0.5 w-5 rounded-full bg-plum"
+              animate={nav.animateMobileMenu}
               variants={{
                 open: { width: 0, transition: { duration: 0.1 } },
                 closed: {
-                  width: "1.5rem",
+                  width: "1.25rem",
                   transition: { delay: 0.3, duration: 0.2 },
                 },
               }}
             />
             <motion.span
-              className="my-[3px] h-0.5 w-6 bg-black"
-              animate={useActive.animateMobileMenuButtonSpan}
+              className="my-[3px] h-0.5 w-5 rounded-full bg-plum"
+              animate={nav.animateMobileMenuButtonSpan}
               variants={{
                 open: { translateY: -8, transition: { delay: 0.1 } },
                 rotatePhase: { rotate: 45, transition: { delay: 0.2 } },
@@ -99,34 +97,44 @@ export function Navbar1() {
             />
           </button>
         </div>
+
         <motion.div
           variants={{
-            open: { height: "var(--height-open, 100dvh)" },
+            open: { height: "var(--height-open, auto)" },
             close: { height: "var(--height-closed, 0)" },
           }}
           initial="close"
-          exit="close"
-          animate={useActive.animateMobileMenu}
-          transition={{ duration: 0.4 }}
-          className="overflow-hidden px-[5%] lg:flex lg:items-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto] text-white gap-2"
+          animate={nav.isMobile ? nav.animateMobileMenu : "open"}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="absolute left-0 top-full w-full overflow-hidden border-b border-plum/5 bg-mist/95 backdrop-blur-xl lg:static lg:flex lg:w-auto lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:backdrop-blur-none lg:[--height-closed:auto] lg:[--height-open:auto]"
         >
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/services">Services</NavLink>
-          <NavLink href="/showcase">Showcase</NavLink>
-    
-          <div
-            onMouseEnter={useActive.openOnDesktopDropdownMenu}
-            onMouseLeave={useActive.closeOnDesktopDropdownMenu}
-          >
+          <div className="flex flex-col px-[5%] pb-6 pt-2 lg:flex-row lg:items-center lg:gap-1 lg:p-0">
+            <NavLink href="/" onClick={nav.closeMobileMenu}>
+              Home
+            </NavLink>
+            <NavLink href="/about" onClick={nav.closeMobileMenu}>
+              About
+            </NavLink>
+            <NavLink href="/services" onClick={nav.closeMobileMenu}>
+              Services
+            </NavLink>
+            <NavLink href="/showcase" onClick={nav.closeMobileMenu}>
+              Showcase
+            </NavLink>
 
-          </div>
-          <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-            <Button className="w-full lg:w-auto" href="/contact">Contact me</Button>
+            <div className="mt-4 lg:ml-3 lg:mt-0">
+              <Button
+                variant="primary-light"
+                className="w-full rounded-full px-5 py-2.5 shadow-sm transition-all hover:opacity-95 hover:shadow-md lg:w-auto"
+                href="/contact"
+                onClick={nav.closeMobileMenu}
+              >
+                Say hello
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>
     </section>
   );
 }
-

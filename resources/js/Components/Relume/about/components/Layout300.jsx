@@ -16,8 +16,8 @@ const steps = [
     text: "Interfaces based on real user behavior - responsive layouts, accessibility, and clean UX.",
   },
   {
-    title: "Build clean architecture",
-    text: "React + Laravel apps with readable code, predictable structure, and maintainable systems.",
+    title: "Build it to last",
+    text: "Websites that are clear, reliable, and easy to update as your business grows.",
   },
   {
     title: "Ship to production",

@@ -24,4 +24,12 @@ Route::get('/showcase', function () {
     return Inertia::render('Showcase');
 })->name('showcase');
 
+Route::get('/showcase/freelancehub', function () {
+    return Inertia::render('ShowcaseFreelanceHub');
+})->name('showcase.freelancehub');
+
+Route::get('/showcase/poprock-avenue', function () {
+    return Inertia::render('ShowcasePoprock');
+})->name('showcase.poprock');
+
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

@@ -5,9 +5,8 @@ import ShowcasePage from '../Components/Relume/showcase/index';
 export default function Showcase() {
     return (
         <>
-            <Head title="FreelanceHub — Project Showcase" />
+            <Head title="Work: Selected Projects" />
             <ShowcasePage />
         </>
     );
 }
-
