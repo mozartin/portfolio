@@ -31,6 +31,15 @@ export default {
                 'plum-bg': '#2E2440',
                 'blush': '#FDF2F8',
             },
+            keyframes: {
+                'proof-marquee': {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-50%)' },
+                },
+            },
+            animation: {
+                'proof-marquee': 'proof-marquee 55s linear infinite',
+            },
         },
     },
     plugins: [],

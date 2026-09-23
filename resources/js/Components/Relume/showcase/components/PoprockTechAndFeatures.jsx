@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
+import { CosmicMark } from "../../Shared/CosmicMark";
 import {
   BiGlobe,
   BiCalendarCheck,
@@ -124,11 +125,7 @@ export function PoprockTechAndFeatures({
           }}
         >
           <div className="mx-auto mb-10 max-w-lg text-center md:mb-14">
-            <img
-              src="/images/logo-icon.png"
-              alt=""
-              className="mx-auto mb-4 h-16 w-16 opacity-60"
-            />
+            <CosmicMark className="mx-auto mb-4 h-16 w-16 text-purple opacity-60" />
             <p className="mb-3 font-regular italic text-purple md:mb-4">
               Under the hood
             </p>
@@ -148,7 +145,7 @@ export function PoprockTechAndFeatures({
             <motion.div
               key={group.category}
               variants={m ? {} : fadeUp}
-              className="rounded-2xl bg-white p-8 shadow-sm"
+              className="rounded-[8px] bg-white p-8 shadow-sm"
             >
               <h3 className="mb-5 font-heading text-lg font-bold text-purple">
                 {group.category}
@@ -182,11 +179,7 @@ export function PoprockTechAndFeatures({
           }
         >
           <div className="mx-auto mb-10 max-w-lg text-center md:mb-14">
-            <img
-              src="/images/logo-icon.png"
-              alt=""
-              className="mx-auto mb-4 h-16 w-16 opacity-60"
-            />
+            <CosmicMark className="mx-auto mb-4 h-16 w-16 text-purple opacity-60" />
             <p className="mb-3 font-regular italic text-purple md:mb-4">
               What&apos;s inside
             </p>
@@ -206,7 +199,7 @@ export function PoprockTechAndFeatures({
             <motion.div
               key={feature.title}
               variants={m ? {} : fadeUp}
-              className="rounded-2xl bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md"
+              className="rounded-[8px] bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-purple/10 text-purple">
                 {feature.icon}

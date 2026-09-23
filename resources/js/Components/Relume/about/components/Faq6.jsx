@@ -64,8 +64,16 @@ export function Faq6() {
   const shouldAnimate = m || isInView;
 
   return (
-    <section ref={ref} id="faq" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
-      <div className="container grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-12 lg:grid-cols-[.75fr,1fr] lg:gap-x-20">
+    <section ref={ref} id="faq" className="relative overflow-hidden bg-mist px-[5%] py-16 text-plum md:py-24 lg:py-28">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 45% 35% at 10% 20%, rgba(184, 164, 214, 0.22), transparent 60%)",
+        }}
+      />
+      <div className="container relative z-10 grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-12 lg:grid-cols-[.75fr,1fr] lg:gap-x-20">
         <div>
           <motion.div
             className="w-12 h-0.5 bg-purple mb-6 origin-left"
@@ -111,7 +119,7 @@ export function Faq6() {
               <motion.div key={index} variants={m ? {} : fadeUp}>
                 <AccordionItem
                   value={`item-${index}`}
-                  className="border border-border-primary px-5 md:px-6 rounded-xl bg-white hover:shadow-sm transition-shadow duration-200"
+                  className="rounded-[8px] border border-plum/8 bg-white/80 px-5 backdrop-blur-sm transition-colors duration-200 hover:border-lavender/50 md:px-6"
                 >
                   <AccordionTrigger
                     icon={

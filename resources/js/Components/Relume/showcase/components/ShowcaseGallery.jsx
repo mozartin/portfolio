@@ -3,6 +3,8 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
+import { CosmicMark } from "../../Shared/CosmicMark";
+import { StudioFrame } from "../../Shared/StudioFrame";
 
 const screenshots = [
   {
@@ -54,7 +56,7 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
           }}
         >
           <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-            <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-40" />
+            <CosmicMark className="mx-auto mb-4 h-16 w-16 text-lavender opacity-40" />
             <p className="mb-3 md:mb-4 font-regular italic text-lavender">
               Screenshots
             </p>
@@ -100,7 +102,7 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
           }
           transition={m ? { duration: 0 } : { duration: 0.7, delay: 0.3, ease: "easeOut" }}
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
+          <StudioFrame tone="light">
             {/* Browser-style top bar */}
             <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 border-b border-gray-200">
               <div className="flex gap-1.5">
@@ -109,7 +111,7 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
                 <span className="w-3 h-3 rounded-full bg-green-400" />
               </div>
               <div className="flex-1 mx-4">
-                <div className="bg-white rounded-md px-3 py-1 text-xs text-gray-500 font-regular text-center">
+                <div className="bg-white rounded-[4px] px-3 py-1 text-xs text-gray-500 font-regular text-center">
                   freelancehub-tau.vercel.app
                 </div>
               </div>
@@ -127,7 +129,7 @@ export function ShowcaseGallery({ canAnimate = true, onAnimationComplete }) {
                 transition={{ duration: 0.3 }}
               />
             </AnimatePresence>
-          </div>
+          </StudioFrame>
 
           {/* Caption */}
           <p className="text-center mt-6 font-regular text-sm text-white/60">

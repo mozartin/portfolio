@@ -13,7 +13,7 @@ const steps = [
   },
   {
     title: "Design with purpose",
-    text: "Interfaces based on real user behavior - responsive layouts, accessibility, and clean UX.",
+    text: "Interfaces based on real user behavior — responsive layouts, accessibility, and clean UX.",
   },
   {
     title: "Build it to last",
@@ -49,40 +49,55 @@ export function Layout300() {
   };
 
   return (
-    <section ref={ref} id="skills" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
-      <div className="container">
+    <section
+      ref={ref}
+      id="skills"
+      className="relative overflow-hidden bg-mist px-[5%] py-16 text-plum md:py-24 lg:py-28"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 40% at 80% 0%, rgba(184, 164, 214, 0.28), transparent 55%)",
+        }}
+      />
+
+      <div className="container relative z-10">
         <div className="flex flex-col items-start">
           <motion.div
-            className="mx-auto mb-12 w-full max-w-lg items-start justify-between gap-5 md:mb-18 lg:mb-20"
+            className="mx-auto mb-12 w-full max-w-lg md:mb-18 lg:mb-20"
             initial={m ? false : { opacity: 0, y: 40 }}
             animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
           >
-            <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-60" />
-            <h2 className="mb-5 text-center text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+            <div className="mx-auto mb-6 h-0.5 w-12 bg-purple" />
+            <h2 className="mb-5 text-center font-heading text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               How I work
             </h2>
-            <p className="text-center md:text-md font-regular">
-              A clear process - from idea to production-ready app.
+            <p className="text-center font-regular text-plum/70 md:text-md">
+              A clear process — from idea to production-ready app.
             </p>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4"
+            className="grid w-full grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4"
             variants={staggerContainer}
             initial={m ? false : "hidden"}
             animate={shouldAnimate ? "visible" : "hidden"}
           >
             {steps.map((step, index) => (
-              <motion.div key={step.title} className="w-full" variants={m ? {} : cardFade}>
-                <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-purple/10 flex items-center justify-center">
-                  <span className="text-purple font-heading font-bold text-lg">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="mb-3 text-center text-xl font-bold font-heading md:mb-4 md:text-2xl">
+              <motion.div
+                key={step.title}
+                className="w-full"
+                variants={m ? {} : cardFade}
+              >
+                <p className="mb-3 text-center font-heading text-sm font-bold tracking-[0.2em] text-purple/70">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mb-3 text-center font-heading text-xl font-bold md:mb-4 md:text-2xl">
                   {step.title}
                 </h3>
-                <p className="text-center font-regular">{step.text}</p>
+                <p className="text-center font-regular text-plum/75">{step.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -92,8 +107,16 @@ export function Layout300() {
             animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={m ? { duration: 0 } : { duration: 0.5, delay: 0.7, ease: "easeOut" }}
           >
-            <Button variant="primary-light" href="/showcase">View Projects</Button>
-            <Button variant="secondary-light" iconRight={<RxChevronRight />} href="/contact">Let's Work Together</Button>
+            <Button variant="primary-light" href="/showcase">
+              View Projects
+            </Button>
+            <Button
+              variant="secondary-light"
+              iconRight={<RxChevronRight />}
+              href="/contact"
+            >
+              Let&apos;s Work Together
+            </Button>
           </motion.div>
         </div>
       </div>

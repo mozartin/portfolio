@@ -5,6 +5,7 @@ import React from "react";
 import { Link } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
+import { StudioFrame } from "../../Shared/StudioFrame";
 
 function PoprockGradientBg() {
   return (
@@ -101,7 +102,7 @@ export function PoprockHero() {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="overflow-hidden rounded-2xl shadow-2xl shadow-black/40">
+              <StudioFrame tone="light">
                 <div className="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-3">
                   <div className="flex gap-1.5">
                     <span className="h-3 w-3 rounded-full bg-red-400" />
@@ -109,7 +110,7 @@ export function PoprockHero() {
                     <span className="h-3 w-3 rounded-full bg-green-400" />
                   </div>
                   <div className="mx-4 flex-1">
-                    <div className="rounded-md bg-white px-3 py-1 text-center font-regular text-xs text-gray-500">
+                    <div className="rounded-[4px] bg-white px-3 py-1 text-center font-regular text-xs text-gray-500">
                       poprockavenue.nl
                     </div>
                   </div>
@@ -119,7 +120,7 @@ export function PoprockHero() {
                   alt="Pop/Rock Avenue hero section"
                   className="block h-auto w-full"
                 />
-              </div>
+              </StudioFrame>
             </a>
           </div>
         </div>

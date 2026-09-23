@@ -6,6 +6,7 @@ import { useForm } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import { BiEnvelope, BiUser, BiMessageDetail, BiCheck } from "react-icons/bi";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
+import { StudioFrame } from "../../Shared/StudioFrame";
 
 function FloatingInput({ id, label, type = "text", icon: Icon, value, onChange, error }) {
   const [focused, setFocused] = useState(false);
@@ -27,7 +28,7 @@ function FloatingInput({ id, label, type = "text", icon: Icon, value, onChange, 
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           className={`
-            w-full rounded-xl border bg-white px-4 py-4 font-regular text-plum text-sm
+            w-full rounded-[8px] border bg-white px-4 py-4 font-regular text-plum text-sm
             outline-none transition-all duration-200
             ${Icon ? "pl-12" : ""}
             ${focused ? "border-purple ring-2 ring-purple/10" : "border-plum/10 hover:border-plum/20"}
@@ -74,7 +75,7 @@ function FloatingTextarea({ id, label, value, onChange, error }) {
           onBlur={() => setFocused(false)}
           rows={5}
           className={`
-            w-full rounded-xl border bg-white pl-12 pr-4 py-4 font-regular text-plum text-sm
+            w-full rounded-[8px] border bg-white pl-12 pr-4 py-4 font-regular text-plum text-sm
             outline-none transition-all duration-200 resize-none
             ${focused ? "border-purple ring-2 ring-purple/10" : "border-plum/10 hover:border-plum/20"}
             ${error ? "border-red-400 ring-2 ring-red-50" : ""}
@@ -124,26 +125,34 @@ export function Contact7() {
   };
 
   return (
-    <section id="contact-form" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
-      <div className="container">
+    <section id="contact-form" className="relative overflow-hidden bg-mist px-[5%] py-16 text-plum md:py-24 lg:py-28">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 40% at 90% 10%, rgba(184, 164, 214, 0.28), transparent 55%)",
+        }}
+      />
+      <div className="container relative z-10">
         {/* Title row - left aligned */}
         <motion.div
-          className="mb-12 md:mb-16 max-w-xl"
+          className="mb-12 max-w-xl md:mb-16"
           initial={m ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={m ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
         >
-          <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mb-4 opacity-60" />
-          <p className="mb-3 md:mb-4 font-regular italic text-purple">Connect</p>
-          <h1 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
-            Let's work together
+          <div className="mb-6 h-0.5 w-12 bg-purple" />
+          <p className="mb-3 font-regular italic text-purple md:mb-4">Connect</p>
+          <h1 className="mb-5 font-heading text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+            Let&apos;s work together
           </h1>
-          <p className="md:text-md font-regular text-plum/70 mb-6">
-            Tell me about your project or idea - let's see how I can help.
+          <p className="mb-6 font-regular text-plum/70 md:text-md">
+            Tell me about your project or idea — let&apos;s see how I can help.
           </p>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-purple/10 flex items-center justify-center text-purple flex-shrink-0">
-              <BiEnvelope className="w-5 h-5" />
+            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-purple/10 text-purple">
+              <BiEnvelope className="h-5 w-5" />
             </div>
             <div>
               <p className="font-regular text-sm text-plum/50">Email</p>
@@ -160,7 +169,7 @@ export function Contact7() {
             animate={{ opacity: 1, y: 0 }}
             transition={m ? { duration: 0 } : { duration: 0.6, delay: 0.15, ease: "easeOut" }}
           >
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm">
+            <div className="rounded-[8px] border border-plum/8 bg-white/80 p-8 shadow-none backdrop-blur-sm md:p-10">
               {recentlySuccessful && (
                 <div className="mb-6 rounded-xl bg-green-50 border border-green-100 p-4 flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
@@ -232,18 +241,23 @@ export function Contact7() {
             </div>
           </motion.div>
 
-          {/* Right - image (height matches form) */}
+          {/* Right - atmosphere */}
           <motion.div
-            className="hidden lg:block relative rounded-2xl overflow-hidden"
+            className="relative hidden min-h-[32rem] lg:block"
             initial={m ? false : { opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={m ? { duration: 0 } : { duration: 0.7, delay: 0.25, ease: "easeOut" }}
           >
-            <img
-              src="/images/get-in-contact.jpg"
-              alt="Contact illustration"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+            <StudioFrame tone="dark" glow className="h-full min-h-[32rem]">
+              <img
+                src="/images/contact/contact-workspace.jpg"
+                alt="Warm workspace ready for a conversation"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum/25 via-transparent to-transparent" />
+              {/* Keep frame height when image is absolute */}
+              <div className="min-h-[32rem]" aria-hidden />
+            </StudioFrame>
           </motion.div>
         </div>
       </div>

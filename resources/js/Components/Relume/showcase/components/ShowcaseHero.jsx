@@ -1,76 +1,18 @@
 "use client";
 
 import { Button } from "../../Shared/Button";
+import { StudioAtmosphere } from "../../Shared/StudioAtmosphere";
+import { StudioFrame } from "../../Shared/StudioFrame";
 import React from "react";
 import { Link } from "@inertiajs/react";
-import { motion } from "framer-motion";
-import { useIsMobile } from "../../../../hooks/useIsMobile";
-
-function ShowcaseGradientBg() {
-  return (
-    <div className="absolute inset-0 z-0 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5a3d8a] via-[#4a3570] to-[#3d2b5e]" />
-
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full opacity-30"
-        style={{
-          background: "radial-gradient(circle, #7c5cb8 0%, transparent 70%)",
-          filter: "blur(100px)",
-          top: "-10%",
-          left: "-5%",
-        }}
-        animate={{
-          x: [0, 60, -20, 0],
-          y: [0, 30, -20, 0],
-          scale: [1, 1.1, 0.95, 1],
-        }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full opacity-25"
-        style={{
-          background: "radial-gradient(circle, #06b6d4 0%, transparent 70%)",
-          filter: "blur(90px)",
-          bottom: "-10%",
-          right: "10%",
-        }}
-        animate={{
-          x: [0, -40, 30, 0],
-          y: [0, -30, 25, 0],
-        }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute w-[350px] h-[350px] rounded-full opacity-20"
-        style={{
-          background: "radial-gradient(circle, #a855f7 0%, transparent 70%)",
-          filter: "blur(80px)",
-          top: "30%",
-          right: "30%",
-        }}
-        animate={{
-          x: [0, 30, -30, 0],
-          y: [0, -20, 30, 0],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </div>
-  );
-}
 
 export function ShowcaseHero() {
-  const m = useIsMobile();
-
   return (
     <section
       id="showcase-hero"
-      className="relative px-[5%] py-16 md:py-24 lg:py-28 text-white overflow-hidden"
+      className="relative overflow-hidden px-[5%] py-16 text-white md:py-24 lg:py-28"
     >
-      {m ? (
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#5a3d8a] via-[#4a3570] to-[#3d2b5e]" />
-      ) : (
-        <ShowcaseGradientBg />
-      )}
+      <StudioAtmosphere intensity="default" />
 
       <div className="container relative z-10">
         <Link
@@ -83,14 +25,14 @@ export function ShowcaseHero() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left - text */}
           <div className="w-full">
-            <div className="w-12 h-0.5 bg-lavender mb-6" />
-            <p className="mb-3 md:mb-4 font-regular italic text-lavender">
+            <div className="mb-6 h-0.5 w-12 bg-lavender" />
+            <p className="mb-3 font-regular italic text-lavender md:mb-4">
               Pet Project &middot; Full-Stack Web App
             </p>
-            <h1 className="mb-5 text-6xl font-bold font-heading md:mb-6 md:text-9xl lg:text-10xl">
+            <h1 className="mb-5 font-heading text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
               FreelanceHub
             </h1>
-            <p className="md:text-md font-regular text-white/85 max-w-md">
+            <p className="max-w-md font-regular text-white/85 md:text-md">
               A full-stack freelance marketplace: browse jobs, send
               proposals, manage work. Built with React, Tailwind&nbsp;CSS,
               Laravel&nbsp;API and deployed to the cloud.
@@ -117,16 +59,16 @@ export function ShowcaseHero() {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
+              <StudioFrame tone="light">
                 {/* Browser bar */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 border-b border-gray-200">
+                <div className="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-3">
                   <div className="flex gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-red-400" />
-                    <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <span className="w-3 h-3 rounded-full bg-green-400" />
+                    <span className="h-3 w-3 rounded-full bg-red-400" />
+                    <span className="h-3 w-3 rounded-full bg-yellow-400" />
+                    <span className="h-3 w-3 rounded-full bg-green-400" />
                   </div>
-                  <div className="flex-1 mx-4">
-                    <div className="bg-white rounded-md px-3 py-1 text-xs text-gray-500 font-regular text-center">
+                  <div className="mx-4 flex-1">
+                    <div className="rounded-[4px] bg-white px-3 py-1 text-center font-regular text-xs text-gray-500">
                       freelancehub-tau.vercel.app
                     </div>
                   </div>
@@ -134,9 +76,9 @@ export function ShowcaseHero() {
                 <img
                   src="/images/showcase/freelancehub-home.png"
                   alt="FreelanceHub - Home page"
-                  className="w-full h-auto block"
+                  className="block h-auto w-full"
                 />
-              </div>
+              </StudioFrame>
             </a>
           </div>
         </div>

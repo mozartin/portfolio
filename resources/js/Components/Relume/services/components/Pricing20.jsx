@@ -63,22 +63,35 @@ export function Pricing20() {
   };
 
   return (
-    <section ref={ref} id="pricing" className="px-[5%] py-16 md:py-24 lg:py-28 bg-mist text-plum">
-      <div className="container">
+    <section
+      ref={ref}
+      id="pricing"
+      className="relative overflow-hidden bg-mist px-[5%] py-16 text-plum md:py-24 lg:py-28"
+    >
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 40% at 50% -5%, rgba(184, 164, 214, 0.3), transparent 55%)",
+        }}
+      />
+
+      <div className="container relative z-10">
         <motion.div
           className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20"
           initial={m ? false : { opacity: 0, y: 40 }}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
         >
-          <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-60" />
-          <p className="mb-3 md:mb-4 font-regular italic text-purple">Services</p>
-          <h1 className="mb-5 text-5xl font-bold font-heading md:mb-6 md:text-7xl lg:text-8xl">
+          <div className="mx-auto mb-6 h-0.5 w-12 bg-purple" />
+          <p className="mb-3 font-regular italic text-purple md:mb-4">Services</p>
+          <h1 className="mb-5 font-heading text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
             Web development services
           </h1>
-          <p className="md:text-md font-regular text-plum/70">
-            Simple, reliable websites and small web applications.
-            Projects scoped individually depending on goals and complexity.
+          <p className="font-regular text-plum/70 md:text-md">
+            Simple, reliable websites and small web applications. Projects scoped
+            individually depending on goals and complexity.
           </p>
         </motion.div>
         <motion.div
@@ -91,17 +104,17 @@ export function Pricing20() {
             <motion.div
               key={plan.title}
               variants={m ? {} : cardFade}
-              className="h-full flex flex-col px-6 py-8 md:p-8 rounded-2xl bg-white border border-plum/5 shadow-sm"
+              className="flex h-full flex-col border border-plum/8 bg-white/70 px-6 py-8 backdrop-blur-sm md:p-8"
             >
-              <h2 className="mb-2 text-xl font-bold font-heading md:text-2xl">
+              <h2 className="mb-2 font-heading text-xl font-bold md:text-2xl">
                 {plan.title}
               </h2>
-              <p className="font-regular text-plum/60 text-sm">{plan.subtitle}</p>
+              <p className="font-regular text-sm text-plum/60">{plan.subtitle}</p>
               <div className="my-6 h-px w-full bg-plum/8" />
-              <div className="grid grid-cols-1 gap-y-3 py-2 font-regular flex-1">
+              <div className="grid flex-1 grid-cols-1 gap-y-3 py-2 font-regular">
                 {plan.features.map((feature, i) => (
                   <div key={i} className="flex items-start">
-                    <div className="mr-3 flex-none mt-0.5">
+                    <div className="mr-3 mt-0.5 flex-none">
                       <BiCheck className="size-5 text-purple" />
                     </div>
                     <p className="text-sm">{feature}</p>

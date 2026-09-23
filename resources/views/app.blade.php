@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="/images/logo-icon.png">
+        <link rel="icon" type="image/svg+xml" href="/images/logo-cosmic.svg">
         <title inertia>{{ config('app.name') }}</title>
         @viteReactRefresh
         @vite(['resources/js/app.jsx'])

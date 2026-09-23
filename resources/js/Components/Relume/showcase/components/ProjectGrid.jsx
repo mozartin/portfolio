@@ -5,6 +5,7 @@ import { Link } from "@inertiajs/react";
 import { motion, useInView } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
 import { projects } from "../projects";
+import { StudioFrame } from "../../Shared/StudioFrame";
 
 export function ProjectGrid({ canAnimate = true, onAnimationComplete }) {
   const ref = useRef(null);
@@ -16,9 +17,17 @@ export function ProjectGrid({ canAnimate = true, onAnimationComplete }) {
     <section
       ref={ref}
       id="showcase-projects"
-      className="overflow-hidden bg-white px-[5%] py-16 text-plum md:py-24 lg:py-28"
+      className="relative overflow-hidden bg-mist px-[5%] py-16 text-plum md:py-24 lg:py-28"
     >
-      <div className="container">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 35% at 50% 0%, rgba(184, 164, 214, 0.22), transparent 55%)",
+        }}
+      />
+      <div className="container relative z-10">
         <motion.div
           className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8 lg:gap-12"
           initial={m ? false : { opacity: 0, y: 36 }}
@@ -50,30 +59,29 @@ export function ProjectGrid({ canAnimate = true, onAnimationComplete }) {
               }
               className="group flex flex-col"
             >
-              <Link
-                href={project.href}
-                className="block overflow-hidden rounded-2xl bg-mist shadow-sm transition-shadow duration-300 hover:shadow-lg"
-              >
-                <div className="flex items-center gap-2 border-b border-plum/5 bg-gray-100 px-4 py-3">
-                  <div className="flex gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-                  </div>
-                  <div className="mx-3 flex-1">
-                    <div className="rounded-md bg-white px-3 py-1 text-center font-regular text-xs text-gray-500">
-                      {project.liveLabel}
+              <StudioFrame tone="dark" className="transition-shadow duration-300 group-hover:shadow-lg">
+                <Link href={project.href} className="block bg-mist">
+                  <div className="flex items-center gap-2 border-b border-plum/5 bg-gray-100 px-4 py-3">
+                    <div className="flex gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+                    </div>
+                    <div className="mx-3 flex-1">
+                      <div className="rounded-[4px] bg-white px-3 py-1 text-center font-regular text-xs text-gray-500">
+                        {project.liveLabel}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-plum/5">
-                  <img
-                    src={project.cover}
-                    alt={project.coverAlt}
-                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-              </Link>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-plum/5">
+                    <img
+                      src={project.cover}
+                      alt={project.coverAlt}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                </Link>
+              </StudioFrame>
 
               <div className="mt-6 flex flex-1 flex-col">
                 <p className="mb-2 font-regular text-sm italic text-purple">
@@ -94,7 +102,7 @@ export function ProjectGrid({ canAnimate = true, onAnimationComplete }) {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-lavender/30 px-3 py-1 font-regular text-xs text-plum/80"
+                      className="rounded-[8px] bg-lavender/30 px-3 py-1 font-regular text-xs text-plum/80"
                     >
                       {tag}
                     </span>

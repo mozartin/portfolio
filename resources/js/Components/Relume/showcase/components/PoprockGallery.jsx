@@ -3,6 +3,8 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
+import { CosmicMark } from "../../Shared/CosmicMark";
+import { StudioFrame } from "../../Shared/StudioFrame";
 
 const screenshots = [
   {
@@ -49,11 +51,7 @@ export function PoprockGallery({ canAnimate = true, onAnimationComplete }) {
           }}
         >
           <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-            <img
-              src="/images/logo-icon.png"
-              alt=""
-              className="mx-auto mb-4 h-16 w-16 opacity-40"
-            />
+            <CosmicMark className="mx-auto mb-4 h-16 w-16 text-plum opacity-40" />
             <p className="mb-3 font-regular italic text-lavender md:mb-4">
               Screenshots
             </p>
@@ -103,7 +101,7 @@ export function PoprockGallery({ canAnimate = true, onAnimationComplete }) {
             m ? { duration: 0 } : { duration: 0.7, delay: 0.3, ease: "easeOut" }
           }
         >
-          <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl">
+          <StudioFrame tone="light">
             <div className="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-3">
               <div className="flex gap-1.5">
                 <span className="h-3 w-3 rounded-full bg-red-400" />
@@ -111,7 +109,7 @@ export function PoprockGallery({ canAnimate = true, onAnimationComplete }) {
                 <span className="h-3 w-3 rounded-full bg-green-400" />
               </div>
               <div className="mx-4 flex-1">
-                <div className="rounded-md bg-white px-3 py-1 text-center font-regular text-xs text-gray-500">
+                <div className="rounded-[4px] bg-white px-3 py-1 text-center font-regular text-xs text-gray-500">
                   poprockavenue.nl
                 </div>
               </div>
@@ -129,7 +127,7 @@ export function PoprockGallery({ canAnimate = true, onAnimationComplete }) {
                 transition={{ duration: 0.3 }}
               />
             </AnimatePresence>
-          </div>
+          </StudioFrame>
 
           <p className="mt-6 text-center font-regular text-sm text-white/60">
             {screenshots[activeIndex].alt}

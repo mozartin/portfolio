@@ -1,0 +1,52 @@
+import React from "react";
+
+/** Mystical crescent mark — replaces the old leaf icon sitewide. */
+export function CosmicMark({ className = "" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 120 120"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <circle
+        cx="60"
+        cy="60"
+        r="48"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.55"
+      />
+      <path
+        d="M72 28.5
+           A34 34 0 1 0 72 91.5
+           A26 26 0 1 1 72 28.5Z"
+        fill="currentColor"
+        opacity="0.92"
+      />
+      <ellipse
+        cx="58"
+        cy="60"
+        rx="38"
+        ry="16"
+        stroke="currentColor"
+        strokeWidth="0.55"
+        opacity="0.32"
+        transform="rotate(-18 58 60)"
+      />
+      <path
+        d="M94 34 L95.1 37.2 L98.4 38.3 L95.1 39.4 L94 42.6 L92.9 39.4 L89.6 38.3 L92.9 37.2 Z"
+        fill="currentColor"
+        opacity="0.7"
+      />
+      <path
+        d="M28 78 L28.7 80.2 L31 81 L28.7 81.8 L28 84 L27.3 81.8 L25 81 L27.3 80.2 Z"
+        fill="currentColor"
+        opacity="0.55"
+      />
+      <circle cx="86" cy="72" r="1" fill="currentColor" opacity="0.45" />
+      <circle cx="38" cy="36" r="0.85" fill="currentColor" opacity="0.4" />
+    </svg>
+  );
+}

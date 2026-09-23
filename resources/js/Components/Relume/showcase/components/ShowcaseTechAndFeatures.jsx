@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
+import { CosmicMark } from "../../Shared/CosmicMark";
 import {
   BiUser,
   BiSearch,
@@ -125,7 +126,7 @@ export function ShowcaseTechAndFeatures({
           }}
         >
           <div className="mx-auto mb-10 max-w-lg text-center md:mb-14">
-            <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-60" />
+            <CosmicMark className="mx-auto mb-4 h-16 w-16 text-purple opacity-60" />
             <p className="mb-3 md:mb-4 font-regular italic text-purple">
               Under the hood
             </p>
@@ -145,7 +146,7 @@ export function ShowcaseTechAndFeatures({
             <motion.div
               key={group.category}
               variants={m ? {} : fadeUp}
-              className="bg-white rounded-2xl p-8 shadow-sm"
+              className="bg-white rounded-[8px] p-8 shadow-sm"
             >
               <h3 className="text-lg font-heading font-bold mb-5 text-purple">
                 {group.category}
@@ -178,7 +179,7 @@ export function ShowcaseTechAndFeatures({
           transition={m ? { duration: 0 } : { duration: 0.7, delay: 0.2, ease: "easeOut" }}
         >
           <div className="mx-auto mb-10 max-w-lg text-center md:mb-14">
-            <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-60" />
+            <CosmicMark className="mx-auto mb-4 h-16 w-16 text-purple opacity-60" />
             <p className="mb-3 md:mb-4 font-regular italic text-purple">
               What's inside
             </p>
@@ -198,7 +199,7 @@ export function ShowcaseTechAndFeatures({
             <motion.div
               key={feature.title}
               variants={m ? {} : fadeUp}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-white rounded-[8px] p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="w-10 h-10 rounded-lg bg-purple/10 flex items-center justify-center text-purple mb-4">
                 {feature.icon}

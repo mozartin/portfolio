@@ -12,7 +12,7 @@ const columns = [
   },
   {
     title: "Modern stack",
-    text: "React, Laravel, Tailwind, Inertia, Docker - and I'm always learning new tools to improve performance, UX, and developer experience.",
+    text: "React, Laravel, Tailwind, Inertia, Docker — and I'm always learning new tools to improve performance, UX, and developer experience.",
   },
   {
     title: "Clean architecture",
@@ -37,96 +37,6 @@ const colFade = {
   },
 };
 
-function AnimatedGradientBg() {
-  return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-[#1a0a2e]">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#2d1b69] via-[#11204d] to-[#0a1628]" />
-
-      <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full opacity-60"
-        style={{
-          background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)",
-          filter: "blur(80px)",
-          top: "-10%",
-          left: "-10%",
-        }}
-        animate={{
-          x: [0, 80, 30, 0],
-          y: [0, 60, -20, 0],
-          scale: [1, 1.15, 0.95, 1],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full opacity-50"
-        style={{
-          background: "radial-gradient(circle, #06b6d4 0%, transparent 70%)",
-          filter: "blur(80px)",
-          bottom: "-15%",
-          left: "20%",
-        }}
-        animate={{
-          x: [0, -60, 40, 0],
-          y: [0, -50, 30, 0],
-          scale: [1, 0.9, 1.1, 1],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <motion.div
-        className="absolute w-[550px] h-[550px] rounded-full opacity-50"
-        style={{
-          background: "radial-gradient(circle, #a855f7 0%, transparent 70%)",
-          filter: "blur(90px)",
-          top: "10%",
-          right: "-10%",
-        }}
-        animate={{
-          x: [0, -70, 20, 0],
-          y: [0, 40, -40, 0],
-          scale: [1, 1.1, 0.9, 1],
-        }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full opacity-40"
-        style={{
-          background: "radial-gradient(circle, #ec4899 0%, transparent 70%)",
-          filter: "blur(80px)",
-          bottom: "5%",
-          right: "10%",
-        }}
-        animate={{
-          x: [0, 50, -30, 0],
-          y: [0, -40, 50, 0],
-          scale: [1, 1.15, 0.85, 1],
-        }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <motion.div
-        className="absolute w-[450px] h-[450px] rounded-full opacity-45"
-        style={{
-          background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
-          filter: "blur(90px)",
-          top: "40%",
-          left: "35%",
-        }}
-        animate={{
-          x: [0, -40, 60, 0],
-          y: [0, 50, -30, 0],
-          scale: [0.9, 1.1, 1, 0.9],
-        }}
-        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <div className="absolute inset-0 bg-black/20" />
-    </div>
-  );
-}
-
 export function Layout267({ canAnimate = true, onAnimationComplete }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -134,8 +44,25 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
   const shouldAnimate = m || (canAnimate && isInView);
 
   return (
-    <section ref={ref} id="approach" className="relative px-[5%] py-16 md:py-24 lg:py-28 overflow-hidden">
-      <motion.div 
+    <section
+      ref={ref}
+      id="approach"
+      className="relative overflow-hidden px-[5%] py-16 text-plum md:py-24 lg:py-28"
+      style={{
+        background:
+          "linear-gradient(180deg, #E8E1F0 0%, #F3F0F6 38%, #F3F0F6 100%)",
+      }}
+    >
+      <div
+        className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-lavender/20 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-16 bottom-0 h-64 w-64 rounded-full bg-purple/10 blur-3xl"
+        aria-hidden
+      />
+
+      <motion.div
         className="container relative z-10"
         initial={m ? false : { opacity: 0, y: 60 }}
         animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
@@ -146,24 +73,35 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
           }
         }}
       >
-        <div className="mx-auto mb-12 max-w-lg text-center text-white md:mb-18 lg:mb-20">
-          <img src="/images/logo-icon.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-40" />
-          <p className="mb-3 md:mb-4 font-regular italic text-white/80">What I bring</p>
+        <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+          <div className="mx-auto mb-6 h-0.5 w-12 bg-purple" />
+          <p className="mb-3 font-regular italic text-purple md:mb-4">
+            What I bring
+          </p>
         </div>
         <motion.div
-          className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12"
+          className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-y-16"
           variants={staggerContainer}
           initial={m ? false : "hidden"}
           animate={shouldAnimate ? "visible" : "hidden"}
         >
-          {columns.map((col) => (
-            <motion.div key={col.title} className="w-full text-center" variants={m ? {} : colFade}>
-              <h3 className="mb-5 text-2xl font-bold font-heading text-white md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
+          {columns.map((col, index) => (
+            <motion.div
+              key={col.title}
+              className={`w-full px-0 text-center md:px-8 lg:px-10 ${
+                index > 0
+                  ? "md:border-l md:border-plum/10"
+                  : ""
+              }`}
+              variants={m ? {} : colFade}
+            >
+              <p className="mb-3 font-heading text-sm font-bold tracking-[0.2em] text-purple/60">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mb-5 font-heading text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
                 {col.title}
               </h3>
-              <p className="text-white/80 font-regular">
-                {col.text}
-              </p>
+              <p className="font-regular text-plum/75">{col.text}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -173,20 +111,14 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
           animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={m ? { duration: 0 } : { duration: 0.5, delay: 0.7, ease: "easeOut" }}
         >
-          <Button variant="primary" href="/showcase">
+          <Button variant="primary-light" href="/showcase">
             View Projects
           </Button>
-          <Button variant="secondary" href="/contact">
-            Let's Work Together
+          <Button variant="secondary-light" href="/contact">
+            Let&apos;s Work Together
           </Button>
         </motion.div>
       </motion.div>
-
-      {m ? (
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#2d1b69] via-[#11204d] to-[#0a1628]" />
-      ) : (
-        <AnimatedGradientBg />
-      )}
     </section>
   );
 }
