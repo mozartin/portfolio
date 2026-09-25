@@ -2,6 +2,7 @@
 
 import { Button } from "../../Shared/Button";
 import { StudioLogo } from "../../Shared/StudioLogo";
+import { StudioRule } from "../../Shared/StudioRule";
 import { CropMark } from "../../Shared/StudioFrame";
 import React, { useEffect, useRef, useState } from "react";
 import {
@@ -251,7 +252,7 @@ export function Header78() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
-            className="mx-auto mb-6 w-[min(58vw,12.5rem)] md:mb-8 md:w-[14rem]"
+            className="mx-auto mb-6 w-max max-w-[min(90vw,22rem)] md:mb-8"
             initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1 }}
@@ -264,7 +265,7 @@ export function Header78() {
             />
           </motion.div>
 
-          <div className="mx-auto mb-6 h-px w-16 bg-gradient-to-r from-transparent via-lavender to-transparent md:mb-8" />
+          <StudioRule className="mb-6 md:mb-8" />
 
           <h1 className="mb-5 font-heading text-5xl font-bold uppercase leading-[1.05] tracking-tight md:mb-6 md:text-7xl lg:text-8xl">
             From idea
@@ -274,8 +275,16 @@ export function Header78() {
             worth remembering.
           </h1>
 
-          <p className="font-regular text-white/75 md:text-md">
-            Design × Development × Strategy
+          <p className="flex items-center justify-center gap-x-3 font-regular text-white/75 md:gap-x-4 md:text-md">
+            <span>Design</span>
+            <span aria-hidden="true" className="opacity-60">
+              ·
+            </span>
+            <span>Code</span>
+            <span aria-hidden="true" className="opacity-60">
+              ·
+            </span>
+            <span>Experience</span>
           </p>
 
           <motion.div

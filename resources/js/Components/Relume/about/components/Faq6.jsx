@@ -76,7 +76,7 @@ export function Faq6() {
       <div className="container relative z-10 grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-12 lg:grid-cols-[.75fr,1fr] lg:gap-x-20">
         <div>
           <motion.div
-            className="w-12 h-0.5 bg-purple mb-6 origin-left"
+            className="mb-6 h-px w-16 origin-left bg-gradient-to-r from-transparent via-lavender to-transparent"
             initial={m ? false : { scaleX: 0 }}
             animate={shouldAnimate ? { scaleX: 1 } : { scaleX: 0 }}
             transition={m ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}

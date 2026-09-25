@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { BiEnvelope, BiUser, BiMessageDetail, BiCheck } from "react-icons/bi";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
 import { StudioFrame } from "../../Shared/StudioFrame";
+import { StudioRule } from "../../Shared/StudioRule";
 
 function FloatingInput({ id, label, type = "text", icon: Icon, value, onChange, error }) {
   const [focused, setFocused] = useState(false);
@@ -142,7 +143,7 @@ export function Contact7() {
           animate={{ opacity: 1, y: 0 }}
           transition={m ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}
         >
-          <div className="mb-6 h-0.5 w-12 bg-purple" />
+          <StudioRule align="left" className="mb-6" />
           <p className="mb-3 font-regular italic text-purple md:mb-4">Connect</p>
           <h1 className="mb-5 font-heading text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
             Let&apos;s work together

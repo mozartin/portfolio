@@ -6,6 +6,7 @@ import { Link } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
 import { StudioFrame } from "../../Shared/StudioFrame";
+import { StudioRule } from "../../Shared/StudioRule";
 
 function PoprockGradientBg() {
   return (
@@ -69,7 +70,7 @@ export function PoprockHero() {
 
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="w-full">
-            <div className="mb-6 h-0.5 w-12 bg-cyan-300" />
+            <StudioRule align="left" className="mb-6" />
             <p className="mb-3 font-regular italic text-cyan-300/90 md:mb-4">
               Client project · Band website
             </p>

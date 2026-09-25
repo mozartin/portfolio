@@ -15,8 +15,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                regular: ['Castoro', 'serif'],      
-                heading: ['Castoro Titling', 'serif'],         
+                regular: ['Castoro', 'serif'],
+                heading: ['Castoro Titling', 'serif'],
+                script: ['Great Vibes', 'cursive'],
             },
             colors: {
                 'primary-bg': '#E4EFEE',

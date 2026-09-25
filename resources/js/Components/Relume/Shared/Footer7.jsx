@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { Link } from "@inertiajs/react";
 import { NavLink } from "./NavLink";
 import { StudioLogo } from "./StudioLogo";
+import { StudioRuleWide } from "./StudioRule";
 import { motion, useInView } from "framer-motion";
 import { useIsMobile } from "../../../hooks/useIsMobile";
 
@@ -65,7 +66,7 @@ export function Footer7() {
             </li>
           </ul>
         </motion.div>
-        <div className="h-px w-full bg-white/15" />
+        <StudioRuleWide tone="light" />
         <motion.div
           className="flex flex-col-reverse items-center justify-between pb-4 pt-6 text-center text-sm md:flex-row md:pb-0 md:pt-8"
           initial={m ? false : { opacity: 0 }}

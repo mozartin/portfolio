@@ -3,6 +3,7 @@
 import { Button } from "../../Shared/Button";
 import { StudioAtmosphere } from "../../Shared/StudioAtmosphere";
 import { StudioFrame } from "../../Shared/StudioFrame";
+import { StudioRule } from "../../Shared/StudioRule";
 import React from "react";
 import { Link } from "@inertiajs/react";
 
@@ -25,7 +26,7 @@ export function ShowcaseHero() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left - text */}
           <div className="w-full">
-            <div className="mb-6 h-0.5 w-12 bg-lavender" />
+            <StudioRule align="left" className="mb-6" />
             <p className="mb-3 font-regular italic text-lavender md:mb-4">
               Pet Project &middot; Full-Stack Web App
             </p>

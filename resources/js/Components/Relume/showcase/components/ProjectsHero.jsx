@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { StudioAtmosphere } from "../../Shared/StudioAtmosphere";
+import { StudioRule } from "../../Shared/StudioRule";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
 
 export function ProjectsHero() {
@@ -21,7 +22,7 @@ export function ProjectsHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
         >
-          <div className="mb-6 h-0.5 w-12 bg-lavender" />
+          <StudioRule align="left" className="mb-6" />
           <p className="mb-3 font-regular italic text-lavender md:mb-4">
             Selected work
           </p>

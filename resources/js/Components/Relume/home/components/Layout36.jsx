@@ -21,7 +21,7 @@ export function Layout36({ canAnimate = true, onAnimationComplete }) {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="w-full max-w-md">
             <motion.div
-              className="mb-6 h-0.5 w-12 origin-left bg-purple"
+              className="mb-6 h-px w-16 origin-left bg-gradient-to-r from-transparent via-lavender to-transparent"
               initial={m ? false : { scaleX: 0 }}
               animate={shouldAnimate ? { scaleX: 1 } : { scaleX: 0 }}
               transition={m ? { duration: 0 } : { duration: 0.6, ease: "easeOut" }}

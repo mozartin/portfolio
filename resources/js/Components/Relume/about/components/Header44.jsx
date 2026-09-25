@@ -3,6 +3,7 @@
 import { Button } from "../../Shared/Button";
 import { StudioAtmosphere } from "../../Shared/StudioAtmosphere";
 import { StudioFrame } from "../../Shared/StudioFrame";
+import { StudioRule } from "../../Shared/StudioRule";
 import React from "react";
 
 export function Header44() {
@@ -16,7 +17,7 @@ export function Header44() {
       <div className="container relative z-10">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="w-full max-w-lg">
-            <div className="mb-6 h-0.5 w-12 bg-lavender" />
+            <StudioRule align="left" className="mb-6" />
             <p className="mb-3 font-regular italic text-lavender md:mb-4">
               Developer
             </p>

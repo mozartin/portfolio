@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "../../Shared/Button";
+import { StudioRule, StudioRuleWide } from "../../Shared/StudioRule";
 import React, { useRef } from "react";
 import { BiCheck } from "react-icons/bi";
 import { motion, useInView } from "framer-motion";
@@ -84,7 +85,7 @@ export function Pricing20() {
           animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
         >
-          <div className="mx-auto mb-6 h-0.5 w-12 bg-purple" />
+          <StudioRule className="mb-6" />
           <p className="mb-3 font-regular italic text-purple md:mb-4">Services</p>
           <h1 className="mb-5 font-heading text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
             Web development services
@@ -110,7 +111,7 @@ export function Pricing20() {
                 {plan.title}
               </h2>
               <p className="font-regular text-sm text-plum/60">{plan.subtitle}</p>
-              <div className="my-6 h-px w-full bg-plum/8" />
+              <StudioRuleWide tone="plum" className="my-6" />
               <div className="grid flex-1 grid-cols-1 gap-y-3 py-2 font-regular">
                 {plan.features.map((feature, i) => (
                   <div key={i} className="flex items-start">

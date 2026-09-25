@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "../../Shared/Button";
+import { StudioRule } from "../../Shared/StudioRule";
 import React, { useRef } from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { motion, useInView } from "framer-motion";
@@ -71,7 +72,7 @@ export function Layout300() {
             animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={m ? { duration: 0 } : { duration: 0.7, ease: "easeOut" }}
           >
-            <div className="mx-auto mb-6 h-0.5 w-12 bg-purple" />
+            <StudioRule className="mb-6" />
             <h2 className="mb-5 text-center font-heading text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
               How I work
             </h2>

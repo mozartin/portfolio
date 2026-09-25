@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "../../Shared/Button";
+import { StudioRule } from "../../Shared/StudioRule";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
@@ -74,7 +75,7 @@ export function Layout267({ canAnimate = true, onAnimationComplete }) {
         }}
       >
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
-          <div className="mx-auto mb-6 h-0.5 w-12 bg-purple" />
+          <StudioRule className="mb-6" />
           <p className="mb-3 font-regular italic text-purple md:mb-4">
             What I bring
           </p>
