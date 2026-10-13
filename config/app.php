@@ -8,12 +8,9 @@ return [
     'env' => env('APP_ENV', 'production'),
     'debug' => (bool) env('APP_DEBUG', false),
     'url' => env('APP_URL', 'http://localhost'),
-    // Force HTTPS asset URLs if APP_URL is HTTPS
-    'asset_url' => env('ASSET_URL') ?: (
-        env('APP_URL') && str_starts_with(env('APP_URL', ''), 'https://') 
-            ? rtrim(env('APP_URL'), '/') 
-            : null
-    ),
+    // Relative by default so www and apex both load same-origin assets.
+    // Set ASSET_URL only if you intentionally need a CDN / fixed host.
+    'asset_url' => env('ASSET_URL'),
     'timezone' => env('APP_TIMEZONE', 'UTC'),
     'locale' => env('APP_LOCALE', 'en'),
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
