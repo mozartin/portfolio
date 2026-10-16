@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/svg+xml" href="/images/logo-cosmic.svg">
-        <title inertia>{{ config('app.name') }}</title>
+        <link rel="apple-touch-icon" href="/images/logo-cosmic-mark.png">
+
+        {{-- Server-rendered for crawlers; Inertia Head updates on client navigations --}}
+        @include('partials.seo')
+
         @viteReactRefresh
         @vite(['resources/js/app.jsx'])
         @inertiaHead
@@ -13,4 +17,3 @@
         @inertia
     </body>
 </html>
-

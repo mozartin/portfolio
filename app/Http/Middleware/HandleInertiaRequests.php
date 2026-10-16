@@ -34,6 +34,10 @@ class HandleInertiaRequests extends BaseHandleInertiaRequests
             'auth' => [
                 'user' => $request->user('web'),
             ],
+            'seo' => [
+                'baseUrl' => rtrim(config('app.url'), '/'),
+                ...\App\Support\Seo::forCurrentRequest(),
+            ],
         ];
     }
 }

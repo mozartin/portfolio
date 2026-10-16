@@ -1,11 +1,15 @@
 import React from 'react';
-import { Head } from '@inertiajs/react';
+import SeoHead from '../Components/SeoHead';
 import ShowcasePage from '../Components/Relume/showcase/index';
 
 export default function Showcase() {
     return (
         <>
-            <Head title="Work: Selected Projects" />
+            <SeoHead
+                title="Work"
+                description="Selected projects by Olena Beliavska — client sites and full-stack web apps designed and built from the ground up."
+                path="/showcase"
+            />
             <ShowcasePage />
         </>
     );
