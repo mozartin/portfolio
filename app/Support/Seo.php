@@ -27,6 +27,14 @@ class Seo
             ? $imagePath
             : $baseUrl.$imagePath;
 
+        $version = config('seo.image_version');
+        if ($version) {
+            $imageUrl .= (str_contains($imageUrl, '?') ? '&' : '?').'v='.$version;
+        }
+
+        $isJpeg = str_ends_with(strtolower(parse_url($imagePath, PHP_URL_PATH) ?: $imagePath), '.jpg')
+            || str_ends_with(strtolower(parse_url($imagePath, PHP_URL_PATH) ?: $imagePath), '.jpeg');
+
         return [
             'siteName' => config('seo.site_name', config('app.name')),
             'title' => $title,
@@ -34,9 +42,7 @@ class Seo
             'url' => $baseUrl.($path === '/' ? '/' : $path),
             'image' => $imageUrl,
             'imagePath' => $imagePath,
-            'imageType' => str_ends_with(strtolower($imagePath), '.jpg') || str_ends_with(strtolower($imagePath), '.jpeg')
-                ? 'image/jpeg'
-                : 'image/png',
+            'imageType' => $isJpeg ? 'image/jpeg' : 'image/png',
             'imageWidth' => 1200,
             'imageHeight' => 630,
         ];

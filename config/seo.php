@@ -1,11 +1,14 @@
 <?php
 
 $siteName = env('APP_NAME', 'Olena Beliavska');
-$defaultImage = '/images/og-default.png';
+// JPEG is more reliably picked up by WhatsApp / iMessage than PNG.
+$defaultImage = '/images/og-default.jpg';
 $defaultDescription = 'Web developer Olena Beliavska — designing and building modern, memorable websites. Design · Code · Experience.';
 
 return [
     'site_name' => $siteName,
+    // Bump when the OG image changes so social caches re-fetch.
+    'image_version' => '20261016b',
     'default' => [
         'title' => $siteName.' · Web Developer',
         'description' => $defaultDescription,
