@@ -8,7 +8,7 @@ $defaultDescription = 'Web developer Olena Beliavska — designing and building 
 return [
     'site_name' => $siteName,
     // Bump when the OG image changes so social caches re-fetch.
-    'image_version' => '20261016b',
+    'image_version' => '20261016d',
     'default' => [
         'title' => $siteName.' · Web Developer',
         'description' => $defaultDescription,
