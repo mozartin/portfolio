@@ -3,7 +3,7 @@ import { Head, usePage } from '@inertiajs/react';
 const DEFAULT_DESCRIPTION =
     'Web developer Olena Beliavska — designing and building modern, memorable websites. Design · Code · Experience.';
 
-const DEFAULT_IMAGE = '/images/og-default.jpg';
+const DEFAULT_IMAGE = '/images/og-logo.jpg';
 
 /**
  * Site-wide Open Graph, Twitter Card, and document meta.
@@ -27,6 +27,10 @@ export default function SeoHead({
         ? image
         : (seo?.image && image === DEFAULT_IMAGE ? seo.image : `${baseUrl}${image}`);
     const fullTitle = title?.includes(siteName) ? title : `${title} · ${siteName}`;
+    const imageWidth = seo?.imageWidth ?? 1200;
+    const imageHeight = seo?.imageHeight ?? 1200;
+    const imageType = seo?.imageType ?? 'image/jpeg';
+    const twitterCard = seo?.twitterCard ?? 'summary';
 
     return (
         <Head title={title}>
@@ -44,13 +48,13 @@ export default function SeoHead({
             <meta head-key="og:url" property="og:url" content={url} />
             <meta head-key="og:image" property="og:image" content={imageUrl} />
             <meta head-key="og:image:secure_url" property="og:image:secure_url" content={imageUrl} />
-            <meta head-key="og:image:type" property="og:image:type" content="image/png" />
-            <meta head-key="og:image:width" property="og:image:width" content="1200" />
-            <meta head-key="og:image:height" property="og:image:height" content="630" />
+            <meta head-key="og:image:type" property="og:image:type" content={imageType} />
+            <meta head-key="og:image:width" property="og:image:width" content={String(imageWidth)} />
+            <meta head-key="og:image:height" property="og:image:height" content={String(imageHeight)} />
             <meta head-key="og:image:alt" property="og:image:alt" content={fullTitle} />
 
-            {/* Twitter / X */}
-            <meta head-key="twitter:card" name="twitter:card" content="summary_large_image" />
+            {/* Twitter / X — compact summary card (logo thumb + text) */}
+            <meta head-key="twitter:card" name="twitter:card" content={twitterCard} />
             <meta head-key="twitter:title" name="twitter:title" content={fullTitle} />
             <meta head-key="twitter:description" name="twitter:description" content={description} />
             <meta head-key="twitter:image" name="twitter:image" content={imageUrl} />

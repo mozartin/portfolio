@@ -43,8 +43,9 @@ class Seo
             'image' => $imageUrl,
             'imagePath' => $imagePath,
             'imageType' => $isJpeg ? 'image/jpeg' : 'image/png',
-            'imageWidth' => 1200,
-            'imageHeight' => 630,
+            'imageWidth' => (int) config('seo.image_width', 1200),
+            'imageHeight' => (int) config('seo.image_height', 1200),
+            'twitterCard' => config('seo.twitter_card', 'summary'),
         ];
     }
 

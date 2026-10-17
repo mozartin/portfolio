@@ -19,7 +19,7 @@
 <meta head-key="og:image:height" property="og:image:height" content="{{ $seo['imageHeight'] }}">
 <meta head-key="og:image:alt" property="og:image:alt" content="{{ $seo['title'] }}">
 
-<meta head-key="twitter:card" name="twitter:card" content="summary_large_image">
+<meta head-key="twitter:card" name="twitter:card" content="{{ $seo['twitterCard'] }}">
 <meta head-key="twitter:title" name="twitter:title" content="{{ $seo['title'] }}">
 <meta head-key="twitter:description" name="twitter:description" content="{{ $seo['description'] }}">
 <meta head-key="twitter:image" name="twitter:image" content="{{ $seo['image'] }}">
