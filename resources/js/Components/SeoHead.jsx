@@ -3,8 +3,7 @@ import { Head, usePage } from '@inertiajs/react';
 const DEFAULT_DESCRIPTION =
     'Web developer Olena Beliavska — designing and building modern, memorable websites. Design · Code · Experience.';
 
-const DEFAULT_IMAGE = '/images/og-card-v2.jpg';
-
+const DEFAULT_IMAGE = '/images/og-card-v3.jpg';
 /**
  * Site-wide Open Graph, Twitter Card, and document meta.
  * Absolute URLs are required for social crawlers.
