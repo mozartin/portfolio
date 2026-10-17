@@ -28,7 +28,7 @@ class Seo
             : $baseUrl.$imagePath;
 
         $version = config('seo.image_version');
-        if ($version) {
+        if (! empty($version)) {
             $imageUrl .= (str_contains($imageUrl, '?') ? '&' : '?').'v='.$version;
         }
 

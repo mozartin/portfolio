@@ -2,16 +2,16 @@
 
 $siteName = env('APP_NAME', 'Olena Beliavska');
 // Square logo thumb — text lives in og:title / og:description, not in the image.
-$defaultImage = '/images/og-logo.jpg';
+// Versioned filename (no ?v=) — Telegram often fails on query strings in og:image.
+$defaultImage = '/images/og-logo-v3.jpg';
 $defaultDescription = 'Web developer Olena Beliavska — designing and building modern, memorable websites. Design · Code · Experience.';
 
 return [
     'site_name' => $siteName,
-    // Bump when the OG image changes so social caches re-fetch.
-    'image_version' => '20261017b',
-    // Keep under Facebook's "large image" threshold so shares show a small thumb + text.
-    'image_width' => 400,
-    'image_height' => 400,
+    // Empty = no query string on og:image (safer for Telegram).
+    'image_version' => null,
+    'image_width' => 800,
+    'image_height' => 800,
     // "summary" = small square thumb + text (not the large banner).
     'twitter_card' => 'summary',
     'default' => [
