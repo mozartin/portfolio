@@ -3,7 +3,7 @@
 $siteName = env('APP_NAME', 'Olena Beliavska');
 // Large logo card (1200×630). Title/description come from meta text — not baked into the image.
 // Versioned filename (no ?v=) — Telegram often fails on query strings in og:image.
-$defaultImage = '/images/og-card.jpg';
+$defaultImage = '/images/og-card-v2.jpg';
 $defaultDescription = 'Web developer Olena Beliavska — designing and building modern, memorable websites. Design · Code · Experience.';
 
 return [
