@@ -3,7 +3,7 @@ import { Head, usePage } from '@inertiajs/react';
 const DEFAULT_DESCRIPTION =
     'Web developer Olena Beliavska — designing and building modern, memorable websites. Design · Code · Experience.';
 
-const DEFAULT_IMAGE = '/images/og-logo-v3.jpg';
+const DEFAULT_IMAGE = '/images/og-card.jpg';
 
 /**
  * Site-wide Open Graph, Twitter Card, and document meta.
@@ -28,9 +28,9 @@ export default function SeoHead({
         : (seo?.image && image === DEFAULT_IMAGE ? seo.image : `${baseUrl}${image}`);
     const fullTitle = title?.includes(siteName) ? title : `${title} · ${siteName}`;
     const imageWidth = seo?.imageWidth ?? 1200;
-    const imageHeight = seo?.imageHeight ?? 1200;
+    const imageHeight = seo?.imageHeight ?? 630;
     const imageType = seo?.imageType ?? 'image/jpeg';
-    const twitterCard = seo?.twitterCard ?? 'summary';
+    const twitterCard = seo?.twitterCard ?? 'summary_large_image';
 
     return (
         <Head title={title}>
